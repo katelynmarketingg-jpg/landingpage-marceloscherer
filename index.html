@@ -1,10 +1,11 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="pt-BR" translate="no">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Marcelo Scherer Retrato</title>
 <meta name="claude:viewport-fit-sides" content="cover">
+<meta name="google" content="notranslate">
 <meta name="description" content="Marcelo Scherer, advogado criminalista em São Leopoldo/RS. Mestre em Ciências Criminais pela PUCRS, 12 anos de atuação na advocacia criminal.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,10 +37,11 @@
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body {
+  margin: 0;
   background: var(--outer); color: var(--fg); font-family: var(--f); font-size: 14px; line-height: 1.65;
   -webkit-font-smoothing: antialiased;
-  padding-left: max(16px, env(safe-area-inset-left, 0px));
-  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-left: env(safe-area-inset-left, 0px);
+  padding-right: env(safe-area-inset-right, 0px);
   padding-block: 0 32px;
 }
 a { color: inherit; text-decoration: none; }
@@ -49,7 +51,7 @@ ol, ul { margin: 0; padding: 0; list-style: none; }
 img { display: block; max-width: 100%; }
 :focus-visible { outline: 2px solid var(--fg); outline-offset: 3px; }
 
-.frame { max-width: 1240px; margin: 0 auto; overflow: hidden; background: #0d0d0d; }
+.frame { max-width: none; margin: 0; overflow: hidden; background: #0d0d0d; }
 .wrap { max-width: 1040px; margin: 0 auto; padding-inline: 32px; }
 .kicker { font-size: 11px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; }
 .h2 { font-size: clamp(28px, 3.6vw, 44px); font-weight: 800; line-height: 1.04; text-transform: uppercase; letter-spacing: -.01em; }
@@ -306,7 +308,7 @@ img { display: block; max-width: 100%; }
   .news { grid-template-columns: 1fr; padding: 22px; }
   body { padding-block: 0; }
   .banner { width: calc(100% - 40px); min-height: 460px; }
-  .frame { margin-inline: calc(-1 * max(16px, env(safe-area-inset-left, 0px))); }
+  .frame { margin-inline: 0; }
   .wrap { padding-inline: 20px; }
   .hero { min-height: 680px; }
   .hero > img { object-position: 58% 20%; transform-origin: 58% 25%; }
@@ -336,16 +338,16 @@ img { display: block; max-width: 100%; }
 
 /* Uma foto vertical contínua cobrindo o topo e o sobre */
 .duo { position: relative; isolation: isolate; background: #0d0d0d; overflow: hidden; }
-.duo-img { position: absolute; top: -9%; left: -4%; width: 78%; height: 109%; object-fit: cover; object-position: 50% 0%; z-index: -3; animation: duozoom 9s var(--ease) both; transform-origin: 50% 15%; }
+.duo-img { position: absolute; top: -9%; left: -4%; width: 82%; height: 109%; object-fit: cover; object-position: 50% 0%; z-index: -3; animation: duozoom 9s var(--ease) both; transform-origin: 50% 15%; }
 .duo::before { content: ""; position: absolute; inset: 0; z-index: -2; pointer-events: none;
   background:
-    linear-gradient(90deg, rgba(13,13,13,0) 52%, rgba(13,13,13,.85) 68%, #0d0d0d 74%),
-    linear-gradient(180deg, rgba(13,13,13,.7) 0%, rgba(13,13,13,0) 9%, rgba(13,13,13,0) 86%, #0d0d0d 100%); }
+    linear-gradient(90deg, rgba(13,13,13,0) 54%, rgba(13,13,13,.55) 66%, rgba(13,13,13,.9) 73%, #0d0d0d 78%),
+    linear-gradient(180deg, rgba(13,13,13,.35) 0%, rgba(13,13,13,0) 7%, rgba(13,13,13,0) 90%, #0d0d0d 100%); }
 .pblock { position: relative; min-height: clamp(720px, 64vw, 940px); display: flex; align-items: center; color: var(--fg); isolation: isolate; }
 .pblock::after { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; }
-.pb-hero::after { background: linear-gradient(270deg, rgba(10,10,10,.6) 0%, rgba(10,10,10,.35) 40%, rgba(10,10,10,0) 62%); -webkit-mask-image: linear-gradient(180deg, #000 60%, transparent 100%); mask-image: linear-gradient(180deg, #000 60%, transparent 100%); }
-.pb-about::after { background: linear-gradient(90deg, rgba(10,10,10,.9) 0%, rgba(10,10,10,.7) 32%, rgba(10,10,10,.1) 56%, rgba(10,10,10,0) 66%); -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 40%); mask-image: linear-gradient(180deg, transparent 0%, #000 40%); }
-.pb-in { width: 100%; max-width: 1176px; margin: 0 auto; padding: 120px clamp(24px, 5vw, 64px) 80px; display: flex; }
+.pb-hero::after { background: linear-gradient(270deg, rgba(10,10,10,.35) 0%, rgba(10,10,10,.15) 40%, rgba(10,10,10,0) 60%); -webkit-mask-image: linear-gradient(180deg, #000 60%, transparent 100%); mask-image: linear-gradient(180deg, #000 60%, transparent 100%); }
+.pb-about::after { background: linear-gradient(90deg, rgba(10,10,10,.75) 0%, rgba(10,10,10,.5) 30%, rgba(10,10,10,0) 52%); -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 40%); mask-image: linear-gradient(180deg, transparent 0%, #000 40%); }
+.pb-in { width: 100%; max-width: 1320px; margin: 0 auto; padding: 120px clamp(24px, 5vw, 64px) 80px; display: flex; }
 .pb-txt { width: min(520px, 44%); display: flex; flex-direction: column; gap: 18px; text-shadow: 0 1px 18px rgba(0,0,0,.35); }
 .pb-txt.right { margin-left: auto; text-align: right; align-items: flex-end; }
 .pb-txt.left { margin-right: auto; }
@@ -370,8 +372,8 @@ img { display: block; max-width: 100%; }
   .pb-about .pb-in { padding-top: 40px; }
   .duo::before { background: linear-gradient(180deg, rgba(13,13,13,.7) 0%, rgba(13,13,13,0) 9%, rgba(13,13,13,0) 86%, #0d0d0d 100%); }
   .pblock { min-height: 100svh; align-items: flex-end; }
-  .pb-hero::after { background: linear-gradient(180deg, rgba(10,10,10,0) 38%, rgba(10,10,10,.7) 66%, rgba(10,10,10,.85) 100%); -webkit-mask-image: none; mask-image: none; }
-  .pb-about::after { background: linear-gradient(180deg, rgba(10,10,10,.85) 0%, rgba(10,10,10,.45) 30%, rgba(10,10,10,.75) 60%, rgba(10,10,10,.92) 100%); -webkit-mask-image: none; mask-image: none; }
+  .pb-hero::after { background: linear-gradient(180deg, rgba(10,10,10,0) 45%, rgba(10,10,10,.6) 70%, rgba(10,10,10,.8) 100%); -webkit-mask-image: none; mask-image: none; }
+  .pb-about::after { background: linear-gradient(180deg, rgba(10,10,10,.8) 0%, rgba(10,10,10,.35) 30%, rgba(10,10,10,.6) 60%, rgba(10,10,10,.85) 100%); -webkit-mask-image: none; mask-image: none; }
   .pb-in { padding: 110px 20px 56px; }
   .pb-txt, .pb-txt.right { width: 100%; text-align: left; align-items: flex-start; }
   .pb-txt.right .kicker { flex-direction: row; }
@@ -403,7 +405,7 @@ img { display: block; max-width: 100%; }
   </div>
 </header>
 
-<div class="frame">
+<div class="frame" translate="no">
 
   <!-- 01 -->
   <div class="duo">
