@@ -337,8 +337,8 @@ img { display: block; max-width: 100%; }
 }
 
 /* Uma foto vertical contínua cobrindo o topo e o sobre */
-.duo { position: relative; isolation: isolate; background: #0d0d0d; overflow: hidden; aspect-ratio: 1280 / 1920; display: flex; flex-direction: column; }
-.duo-img { position: absolute; top: 0; left: 0; width: 100%; height: 109%; object-fit: cover; object-position: 50% 0%; z-index: -3; animation: duozoom 9s var(--ease) both; transform-origin: 50% 15%; }
+.duo { position: relative; isolation: isolate; background: #0d0d0d; overflow: hidden; aspect-ratio: 1280 / 1690; display: flex; flex-direction: column; }
+.duo-img { position: absolute; top: -13.6%; left: 0; width: 100%; height: 113.6%; object-fit: cover; object-position: 50% 0%; z-index: -3; animation: duozoom 9s var(--ease) both; transform-origin: 50% 15%; }
 .duo::before { content: ""; position: absolute; inset: 0; z-index: -2; pointer-events: none;
   background:
     linear-gradient(180deg, rgba(13,13,13,.35) 0%, rgba(13,13,13,0) 5%, rgba(13,13,13,0) 94%, rgba(13,13,13,.6) 100%); }
@@ -372,9 +372,14 @@ img { display: block; max-width: 100%; }
 .banner p { font-size: 15px; }
 #atuacao { margin-top: 0; }
 .band { min-height: 100vh; min-height: 100svh; display: flex; align-items: center; }
-.band > .wrap { width: 100%; max-width: 1280px; padding-inline: clamp(24px, 5vw, 64px); }
-.band .txt h3 { font-size: clamp(26px, 3vw, 40px); }
-.band .txt p { font-size: 15px; }
+.band > .wrap { width: 100%; max-width: 1440px; padding-inline: clamp(24px, 5vw, 64px); }
+.band .txt h3 { font-size: clamp(28px, 3.3vw, 46px); }
+.band .txt .kicker { font-size: 12px; }
+.band .area { grid-template-columns: 1.15fr 1fr; }
+.band .area.flip { grid-template-columns: 1fr 1.15fr; }
+.band .area.center { grid-template-columns: 1fr; }
+@media (max-width: 760px) { .band .area, .band .area.flip { grid-template-columns: 1fr; } }
+.band .txt p { font-size: 16px; max-width: 54ch; }
 @media (max-width: 760px) { .band { min-height: 0; display: block; } }
 @media (max-width: 760px) { .banner { width: 100%; min-height: 80svh; } }
 .t-mid > .creds .clist li { font-size: 15px; padding: 15px 0; }
