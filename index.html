@@ -364,7 +364,11 @@ img { display: block; max-width: 100%; }
 .pb-hero .pb-txt > * { animation: rise 1s var(--ease) both; }
 .pb-hero .pb-txt > :nth-child(2) { animation-delay: .12s; } .pb-hero .pb-txt > :nth-child(3) { animation-delay: .24s; } .pb-hero .pb-txt > :nth-child(4) { animation-delay: .36s; } .pb-hero .pb-txt > :nth-child(5) { animation-delay: .48s; }
 @keyframes duozoom { from { transform: scale(1.08); } to { transform: none; } }
-.t-mid > .creds { border-top: 0; }
+.t-mid > .creds { border-top: 0; min-height: 100vh; min-height: 100svh; }
+@media (max-width: 760px) { .t-mid > .creds { min-height: 0; } }
+.t-mid > .creds .clist li { font-size: 15px; padding: 15px 0; }
+.t-mid > .creds .clist .n { margin-top: 9px; }
+.t-mid > .creds h3 { font-size: clamp(28px, 3.5vw, 44px); }
 @media (max-width: 760px) {
   .duo-img { top: -70px; left: 0; width: 100%; bottom: auto; height: min(1560px, 400vw); -webkit-mask-image: linear-gradient(180deg, #000 82%, transparent 100%); mask-image: linear-gradient(180deg, #000 82%, transparent 100%); }
   .pblock.pb-hero { min-height: calc(100svh + 320px); }
@@ -451,7 +455,7 @@ img { display: block; max-width: 100%; }
             <li><span class="n" aria-hidden="true"></span><span>Revisor da Revista da Faculdade de Direito da UFRGS.</span></li>
           </ol>
       </div>
-      <div class="creds-photo mask"><img src="fotos/em-pe.jpg" alt="Marcelo Scherer em pé no escritório" loading="lazy"></div>
+      <div class="creds-photo mask"><img src="fotos/em-pe-hd.jpg" alt="Marcelo Scherer em pé no escritório" loading="lazy"></div>
     </div>
   </section>
 
