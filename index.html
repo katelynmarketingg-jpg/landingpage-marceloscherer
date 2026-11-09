@@ -337,11 +337,11 @@ img { display: block; max-width: 100%; }
 }
 
 /* Uma foto vertical contínua cobrindo o topo e o sobre */
-.duo { position: relative; isolation: isolate; background: #0d0d0d; overflow: hidden; height: min(200svh, 141vw); display: flex; flex-direction: column; }
+.duo { position: relative; isolation: isolate; background: #0d0d0d; overflow: hidden; height: min(200svh, 106vw); display: flex; flex-direction: column; }
 .duo-img { position: absolute; top: -20.6vw; left: -5.7%; width: 108%; max-width: none; height: auto; aspect-ratio: 1280 / 1920; z-index: -3; animation: duozoom 9s var(--ease) both; transform-origin: 50% 15%; }
 .duo::before { content: ""; position: absolute; inset: 0; z-index: -2; pointer-events: none;
   background:
-    linear-gradient(180deg, rgba(13,13,13,.35) 0%, rgba(13,13,13,0) 5%, rgba(13,13,13,0) 94%, rgba(13,13,13,.6) 100%); }
+    linear-gradient(180deg, rgba(13,13,13,.35) 0%, rgba(13,13,13,0) 5%, rgba(13,13,13,0) 78%, rgba(13,13,13,.55) 90%, #0d0d0d 100%); }
 .pblock { position: relative; flex: 1 1 50%; min-height: 0; display: flex; align-items: center; color: var(--fg); isolation: isolate; }
 .pblock::after { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; }
 .pb-hero::after { background: linear-gradient(90deg, rgba(10,10,10,.62) 0%, rgba(10,10,10,.4) 26%, rgba(10,10,10,0) 44%); -webkit-mask-image: linear-gradient(180deg, #000 60%, transparent 100%); mask-image: linear-gradient(180deg, #000 60%, transparent 100%); }
