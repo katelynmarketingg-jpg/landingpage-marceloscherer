@@ -249,6 +249,9 @@ img { display: block; max-width: 100%; }
 
 /* Manchetes */
 .press { padding-block: clamp(64px, 8vw, 110px); }
+.press { min-height: 100vh; min-height: 100svh; display: flex; align-items: center; }
+.press > .wrap { width: 100%; max-width: 1440px; padding-inline: clamp(24px, 5vw, 64px); }
+@media (min-width: 761px) { .press .news { padding: clamp(32px, 3.2vw, 56px) clamp(32px, 3.6vw, 64px); gap: 0 clamp(48px, 5vw, 96px); } .press .news h3 { font-size: clamp(22px, 2.4vw, 34px); } .press .news .bd p { font-size: 15.5px; } .press .news .orig { font-size: 13px; } .press .news .src { font-size: 11.5px; } }
 .press-head { display: grid; grid-template-columns: 1fr auto; gap: 24px 48px; align-items: end; margin-bottom: 36px; }
 .press-head .kicker { color: var(--mu); }
 .press-head .h2 { margin-top: 10px; }
