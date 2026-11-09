@@ -415,6 +415,68 @@ img { display: block; max-width: 100%; }
 }
 @media (max-width: 760px) { .duo-blur { display: none; } }
 @media (prefers-reduced-motion: reduce) { .duo-img { animation: none; } }
+
+/* creds menor */
+@media (min-width: 761px) { .t-mid > .creds { grid-template-columns: 1.25fr .75fr; } .t-mid > .creds .creds-photo { margin: clamp(48px, 6vw, 96px) clamp(32px, 5vw, 80px) clamp(48px, 6vw, 96px) 0; min-height: 0; } .t-mid > .creds .creds-photo img { object-position: 50% 12%; } }
+/* pessoal */
+.pessoal { min-height: 100vh; min-height: 100svh; display: flex; align-items: center; padding-block: clamp(64px, 8vw, 120px); }
+.pessoal > .wrap { width: 100%; max-width: 1440px; padding-inline: clamp(24px, 5vw, 64px); display: grid; grid-template-columns: 1.05fr 1fr; gap: clamp(32px, 6vw, 96px); align-items: center; }
+.pes-fotos { display: grid; grid-template-columns: 1.2fr 1fr; grid-template-rows: 1fr 1fr; gap: 14px; height: min(72svh, 640px); }
+.pf { position: relative; overflow: hidden; background: linear-gradient(160deg, #2a2a28, #141414); border: 1px dashed rgba(241,241,239,.18); display: grid; place-items: center; }
+.pf span { font-size: 10px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: rgba(241,241,239,.4); }
+.pf img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.pf1 { grid-row: 1 / 3; }
+.pes-txt { display: flex; flex-direction: column; gap: 18px; max-width: 560px; }
+.pes-txt .kicker { color: var(--mu); }
+.pes-txt p { font-size: 16px; color: var(--mu); line-height: 1.7; }
+.pes-txt .h2 { margin-bottom: 6px; }
+mark.tbd { background: rgba(241,241,239,.1); color: var(--tx); padding: 1px 6px; border: 1px dashed rgba(241,241,239,.35); }
+.pes-onde { margin-top: 10px; display: inline-flex; align-items: center; gap: 12px; font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; border: 1px solid var(--ln); padding: 14px 18px; align-self: flex-start; }
+.pes-onde .dot { width: 8px; height: 8px; border-radius: 50%; background: #7fd48a; box-shadow: 0 0 0 4px rgba(127,212,138,.15); }
+/* resumo */
+.resumo { min-height: 100vh; min-height: 100svh; display: flex; align-items: center; padding-block: clamp(64px, 8vw, 120px); }
+.resumo > .wrap { width: 100%; max-width: 1440px; padding-inline: clamp(24px, 5vw, 64px); }
+.res-head { display: flex; flex-direction: column; gap: 14px; margin-bottom: clamp(28px, 4vw, 48px); }
+.res-head .kicker { color: var(--mu); }
+.res-head p { color: var(--mu); font-size: 15px; }
+.agrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; align-items: start; }
+.acard { background: var(--card); border: 1px solid var(--ln); transition: box-shadow .4s var(--ease), transform .4s var(--ease); }
+.acard:hover { transform: translateY(-3px); box-shadow: 0 18px 40px rgba(0,0,0,.08); }
+.acard summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: auto 1fr auto; gap: 14px; align-items: start; padding: 26px 24px; min-height: 150px; }
+.acard summary::-webkit-details-marker { display: none; }
+.acard .an { font-size: 11px; font-weight: 700; letter-spacing: .12em; color: var(--mu); padding-top: 4px; }
+.acard .at { font-size: clamp(17px, 1.4vw, 20px); font-weight: 800; line-height: 1.2; }
+.acard .ap { position: relative; width: 22px; height: 22px; border: 1px solid var(--ln); border-radius: 50%; margin-top: 2px; }
+.acard .ap::before, .acard .ap::after { content: ""; position: absolute; left: 50%; top: 50%; width: 9px; height: 1.5px; background: currentColor; transform: translate(-50%, -50%); transition: transform .3s var(--ease); }
+.acard .ap::after { transform: translate(-50%, -50%) rotate(90deg); }
+.acard[open] .ap::after { transform: translate(-50%, -50%) rotate(0deg); }
+.acard[open] { box-shadow: 0 18px 40px rgba(0,0,0,.1); }
+.acard .ab { padding: 0 24px 26px; display: flex; flex-direction: column; gap: 12px; animation: rise .5s var(--ease) both; }
+.acard .ah { font-weight: 700; font-size: 15px; line-height: 1.35; }
+.acard .ab p:not(.ah) { font-size: 14px; color: var(--mu); }
+.acard .al { display: flex; flex-wrap: wrap; gap: 10px 20px; margin-top: 4px; }
+@media (max-width: 1100px) { .agrid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 760px) {
+  .pessoal > .wrap { grid-template-columns: 1fr; }
+  .pes-fotos { height: 420px; }
+  .agrid { grid-template-columns: 1fr; }
+  .acard summary { min-height: 0; }
+  .resumo, .pessoal { min-height: 0; }
+}
+
+/* contato tela cheia */
+.contact.cfull { position: relative; isolation: isolate; overflow: hidden; background: #0d0d0d; }
+.cfull .cbg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 40%; z-index: -2; }
+.cfull::before { content: ""; position: absolute; inset: 0; z-index: -1; background: radial-gradient(70% 60% at 50% 50%, rgba(10,10,10,.55), rgba(10,10,10,.78)), linear-gradient(180deg, rgba(10,10,10,.5), rgba(10,10,10,.25) 40%, rgba(10,10,10,.7)); }
+.contact.cfull > .wrap { display: flex; flex-direction: column; align-items: center; text-align: center; max-width: 1560px; }
+.contact.cfull > .wrap > div { display: flex; flex-direction: column; align-items: center; }
+.cfull .h2 { font-size: clamp(28px, 3.1vw, 54px); max-width: 1240px; text-shadow: 0 2px 30px rgba(0,0,0,.4); }
+.cfull .lead { font-size: 16px; max-width: 56ch; color: #d6d6d2; margin-top: 22px; }
+.cfull dl { display: flex; flex-wrap: wrap; justify-content: center; gap: 18px 40px; margin-top: 40px; font-size: 14px; }
+.cfull dl > div { display: flex; flex-direction: column; gap: 6px; }
+.cfull dt { padding-top: 0; color: #bdbdb8; }
+.cfull .btn { margin-top: 40px; }
+@media (max-width: 760px) { .cfull dl { flex-direction: column; gap: 14px; } .cfull dd { margin-bottom: 0; } }
 </style>
 </head>
 <body>
@@ -486,7 +548,71 @@ img { display: block; max-width: 100%; }
             <li><span class="n" aria-hidden="true"></span><span>Revisor da Revista da Faculdade de Direito da UFRGS.</span></li>
           </ol>
       </div>
-      <div class="creds-photo mask"><img src="fotos/em-pe-hd.jpg" alt="Marcelo Scherer em pé no escritório" loading="lazy"></div>
+      <div class="creds-photo mask"><img src="fotos/retrato-maos.jpg" alt="Marcelo Scherer sentado, com as mãos entrelaçadas" loading="lazy"></div>
+    </div>
+  </section>
+
+  <!-- Pessoal -->
+  <section class="pessoal t-black" id="quem-sou" aria-labelledby="pes-t">
+    <div class="wrap">
+      <div class="pes-fotos rv">
+        <div class="pf pf1"><span>Foto do cotidiano</span></div>
+        <div class="pf pf2"><span>Foto do cotidiano</span></div>
+        <div class="pf pf3"><span>Foto do cotidiano</span></div>
+      </div>
+      <div class="pes-txt rv d1">
+        <span class="kicker">Olá, sou Marcelo Scherer</span>
+        <h2 class="h2" id="pes-t">Quem está por trás da defesa</h2>
+        <p>Natural de <mark class="tbd">[cidade]</mark>, <mark class="tbd">[um pouco sobre a história dele]</mark>.</p>
+        <p>Fora dos tribunais, sou apaixonado por corrida. <mark class="tbd">[detalhe: provas, rotina, o que a corrida ensina]</mark></p>
+        <p>Escolhi o Direito Criminal porque <mark class="tbd">[motivo, nas palavras dele]</mark>.</p>
+        <div class="pes-onde"><span class="dot" aria-hidden="true"></span>Atendimento presencial em São Leopoldo (RS) e online em todo o Brasil</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Atuação resumida -->
+  <section class="resumo t-light" id="atuacao" aria-labelledby="res-t">
+    <div class="wrap">
+      <div class="res-head rv">
+        <span class="kicker">Atuação</span>
+        <h2 class="h2" id="res-t">Em que posso te ajudar</h2>
+        <p>Toque em cada área para entender melhor como funciona a atuação.</p>
+      </div>
+      <div class="agrid rv d1">
+        <details class="acard">
+          <summary><span class="an">01</span><span class="at">Tribunal do Júri</span><span class="ap" aria-hidden="true"></span></summary>
+          <div class="ab"><p class="ah">No Júri, a defesa se constrói muito antes do plenário.</p><p>Estudo minucioso dos autos, preparação cuidadosa das testemunhas e construção de teses sólidas para sustentar a defesa perante o Conselho de Sentença.</p><div class="al"><a class="link" href="#area-juri">Ver detalhes <span aria-hidden="true">→</span></a><a class="link" data-wa="Tribunal do Júri" href="https://wa.me/5551998474555" target="_blank" rel="noopener">Falar no WhatsApp <span aria-hidden="true">→</span></a></div></div>
+        </details>
+        <details class="acard">
+          <summary><span class="an">02</span><span class="at">Crimes contra a dignidade sexual</span><span class="ap" aria-hidden="true"></span></summary>
+          <div class="ab"><p class="ah">Uma acusação grave não autoriza um julgamento antecipado.</p><p>Casos que envolvem reputação, liberdade e vida pessoal exigem sigilo, serenidade e uma análise criteriosa de cada prova e circunstância.</p><div class="al"><a class="link" href="#area-dignidade">Ver detalhes <span aria-hidden="true">→</span></a><a class="link" data-wa="crimes contra a dignidade sexual" href="https://wa.me/5551998474555" target="_blank" rel="noopener">Falar no WhatsApp <span aria-hidden="true">→</span></a></div></div>
+        </details>
+        <details class="acard">
+          <summary><span class="an">03</span><span class="at">Investigação criminal e intimações</span><span class="ap" aria-hidden="true"></span></summary>
+          <div class="ab"><p class="ah">Recebeu uma intimação? Entenda sua situação antes de falar.</p><p>Antes de prestar qualquer esclarecimento, é essencial saber em que condição você está sendo chamado, quais são os seus direitos e como funciona o procedimento.</p><div class="al"><a class="link" href="#area-intimacoes">Ver detalhes <span aria-hidden="true">→</span></a><a class="link" data-wa="investigação criminal e intimações" href="https://wa.me/5551998474555" target="_blank" rel="noopener">Falar no WhatsApp <span aria-hidden="true">→</span></a></div></div>
+        </details>
+        <details class="acard">
+          <summary><span class="an">04</span><span class="at">Violência doméstica</span><span class="ap" aria-hidden="true"></span></summary>
+          <div class="ab"><p class="ah">Denúncia, medida protetiva ou investigação: cada situação pede uma resposta própria.</p><p>Atuação na defesa de acusados e na assistência às vítimas, com atenção às particularidades e aos prazos de cada procedimento.</p><div class="al"><a class="link" href="#area-violencia">Ver detalhes <span aria-hidden="true">→</span></a><a class="link" data-wa="violência doméstica" href="https://wa.me/5551998474555" target="_blank" rel="noopener">Falar no WhatsApp <span aria-hidden="true">→</span></a></div></div>
+        </details>
+        <details class="acard">
+          <summary><span class="an">05</span><span class="at">Processos criminais</span><span class="ap" aria-hidden="true"></span></summary>
+          <div class="ab"><p class="ah">A acusação conta uma versão. A defesa garante que ela seja posta à prova.</p><p>Um processo criminal não se resume ao que foi alegado contra você. A defesa trabalha com os fatos, as provas e os instrumentos da lei para apresentar a sua posição.</p><div class="al"><a class="link" href="#area-processos">Ver detalhes <span aria-hidden="true">→</span></a><a class="link" data-wa="processo criminal" href="https://wa.me/5551998474555" target="_blank" rel="noopener">Falar no WhatsApp <span aria-hidden="true">→</span></a></div></div>
+        </details>
+        <details class="acard">
+          <summary><span class="an">06</span><span class="at">Prisões e flagrantes</span><span class="ap" aria-hidden="true"></span></summary>
+          <div class="ab"><p class="ah">Alguém da sua família foi preso? O primeiro passo é entender o que aconteceu.</p><p>Nas primeiras horas após uma prisão, a orientação jurídica esclarece a situação para a família e avalia as medidas cabíveis em cada caso.</p><div class="al"><a class="link" href="#area-prisoes">Ver detalhes <span aria-hidden="true">→</span></a><a class="link" data-wa="prisão em flagrante" href="https://wa.me/5551998474555" target="_blank" rel="noopener">Falar no WhatsApp <span aria-hidden="true">→</span></a></div></div>
+        </details>
+        <details class="acard">
+          <summary><span class="an">07</span><span class="at">Recursos criminais</span><span class="ap" aria-hidden="true"></span></summary>
+          <div class="ab"><p class="ah">Uma decisão desfavorável nem sempre é o fim do caminho.</p><p>A lei prevê meios de revisão por meio de recursos, conforme as circunstâncias e os requisitos de cada processo. Uma análise técnica indica se e como recorrer.</p><div class="al"><a class="link" href="#area-recursos">Ver detalhes <span aria-hidden="true">→</span></a><a class="link" data-wa="recursos criminais" href="https://wa.me/5551998474555" target="_blank" rel="noopener">Falar no WhatsApp <span aria-hidden="true">→</span></a></div></div>
+        </details>
+        <details class="acard">
+          <summary><span class="an">08</span><span class="at">Execução penal</span><span class="ap" aria-hidden="true"></span></summary>
+          <div class="ab"><p class="ah">Os direitos de quem foi condenado continuam depois da sentença.</p><p>Progressão de regime, remição de pena e outros direitos da execução penal são avaliados conforme a situação individual e os requisitos legais.</p><div class="al"><a class="link" href="#area-execucao">Ver detalhes <span aria-hidden="true">→</span></a><a class="link" data-wa="execução penal" href="https://wa.me/5551998474555" target="_blank" rel="noopener">Falar no WhatsApp <span aria-hidden="true">→</span></a></div></div>
+        </details>
+      </div>
     </div>
   </section>
 
@@ -500,37 +626,37 @@ img { display: block; max-width: 100%; }
   </section>
 
   <!-- 02 a 11 -->
-  <section id="atuacao" aria-label="Áreas de atuação">
+  <section id="areas" aria-label="Áreas de atuação em detalhe">
     <div class="areas">
-      <article class="band t-light"><div class="wrap area">
+      <article class="band t-light" id="area-juri"><div class="wrap area">
         <div class="ph mask"><img src="fotos/area-juri.jpg" alt="Plenário do Tribunal do Júri com balança da justiça" loading="lazy"></div>
         <div class="txt rv"><span class="kicker">Tribunal do Júri</span><h3>No Júri, a defesa se constrói muito antes do plenário.</h3><p>Estudo minucioso dos autos, preparação cuidadosa das testemunhas e construção de teses sólidas para sustentar a defesa perante o Conselho de Sentença.</p><a class="link" data-wa="Tribunal do Júri" href="https://wa.me/5551998474555" target="_blank" rel="noopener">Saiba mais <span aria-hidden="true">→</span></a></div>
       </div></article>
-      <article class="band t-mid"><div class="wrap area flip">
+      <article class="band t-mid" id="area-dignidade"><div class="wrap area flip">
         <div class="ph mask"><img src="fotos/area-dignidade.jpg" alt="Mãos segurando as grades de uma cela" loading="lazy" style="object-position:50% 50%"></div>
         <div class="txt rv"><span class="kicker">Crimes contra a dignidade sexual</span><h3>Uma acusação grave não autoriza um julgamento antecipado.</h3><p>Casos que envolvem reputação, liberdade e vida pessoal exigem sigilo, serenidade e uma análise criteriosa de cada prova e circunstância.</p><a class="link" data-wa="crimes contra a dignidade sexual" href="https://wa.me/5551998474555" target="_blank" rel="noopener">Saiba mais <span aria-hidden="true">→</span></a></div>
       </div></article>
-      <article class="band t-black"><div class="wrap area center">
+      <article class="band t-black" id="area-intimacoes"><div class="wrap area center">
         <div class="ph mask"><img src="fotos/area-intimacao.jpg" alt="Mão segurando um envelope com documento" loading="lazy" style="object-position:50% 38%"></div>
         <div class="txt rv"><span class="kicker">Investigação criminal e intimações</span><h3>Recebeu uma intimação? Entenda sua situação antes de falar.</h3><p>Antes de prestar qualquer esclarecimento, é essencial saber em que condição você está sendo chamado, quais são os seus direitos e como funciona o procedimento.</p><a class="link" data-wa="investigação criminal e intimações" href="https://wa.me/5551998474555" target="_blank" rel="noopener">Saiba mais <span aria-hidden="true">→</span></a></div>
       </div></article>
-      <article class="band t-light"><div class="wrap area">
+      <article class="band t-light" id="area-violencia"><div class="wrap area">
         <div class="ph mask"><span class="word">Medida protetiva</span><span class="tag">Foto ilustrativa</span></div>
         <div class="txt rv"><span class="kicker">Violência doméstica</span><h3>Denúncia, medida protetiva ou investigação: cada situação pede uma resposta própria.</h3><p>Atuação na defesa de acusados e na assistência às vítimas, com atenção às particularidades e aos prazos de cada procedimento.</p><a class="link" data-wa="violência doméstica" href="https://wa.me/5551998474555" target="_blank" rel="noopener">Saiba mais <span aria-hidden="true">→</span></a></div>
       </div></article>
-      <article class="band t-mid"><div class="wrap area flip">
+      <article class="band t-mid" id="area-processos"><div class="wrap area flip">
         <div class="ph mask"><img src="fotos/area-processos.jpg" alt="Balança da justiça em tons escuros" loading="lazy" style="object-position:50% 45%"></div>
         <div class="txt rv"><span class="kicker">Processos criminais</span><h3>A acusação conta uma versão. A defesa garante que ela seja posta à prova.</h3><p>Um processo criminal não se resume ao que foi alegado contra você. A defesa trabalha com os fatos, as provas e os instrumentos da lei para apresentar a sua posição.</p><a class="link" data-wa="processo criminal" href="https://wa.me/5551998474555" target="_blank" rel="noopener">Saiba mais <span aria-hidden="true">→</span></a></div>
       </div></article>
-      <article class="band t-black"><div class="wrap area center">
+      <article class="band t-black" id="area-prisoes"><div class="wrap area center">
         <div class="ph mask"><img src="fotos/area-flagrante.jpg" alt="Fachada de delegacia da Polícia Civil em preto e branco" loading="lazy" style="object-position:50% 50%"></div>
         <div class="txt rv"><span class="kicker">Prisões e flagrantes</span><h3>Alguém da sua família foi preso? O primeiro passo é entender o que aconteceu.</h3><p>Nas primeiras horas após uma prisão, a orientação jurídica esclarece a situação para a família e avalia as medidas cabíveis em cada caso.</p><a class="link" data-wa="prisão em flagrante" href="https://wa.me/5551998474555" target="_blank" rel="noopener">Saiba mais <span aria-hidden="true">→</span></a></div>
       </div></article>
-      <article class="band t-light"><div class="wrap area">
+      <article class="band t-light" id="area-recursos"><div class="wrap area">
         <div class="ph mask"><img src="fotos/area-recursos.jpg" alt="Estátua da Justiça com balança" loading="lazy"></div>
         <div class="txt rv"><span class="kicker">Recursos criminais</span><h3>Uma decisão desfavorável nem sempre é o fim do caminho.</h3><p>A lei prevê meios de revisão por meio de recursos, conforme as circunstâncias e os requisitos de cada processo. Uma análise técnica indica se e como recorrer.</p><a class="link" data-wa="recursos criminais" href="https://wa.me/5551998474555" target="_blank" rel="noopener">Saiba mais <span aria-hidden="true">→</span></a></div>
       </div></article>
-      <article class="band t-mid"><div class="wrap area flip">
+      <article class="band t-mid" id="area-execucao"><div class="wrap area flip">
         <div class="ph mask"><img src="fotos/area-prisao.jpg" alt="Pátio de presídio visto através das grades" loading="lazy"></div>
         <div class="txt rv"><span class="kicker">Execução penal</span><h3>Os direitos de quem foi condenado continuam depois da sentença.</h3><p>Progressão de regime, remição de pena e outros direitos da execução penal são avaliados conforme a situação individual e os requisitos legais.</p><a class="link" data-wa="execução penal" href="https://wa.me/5551998474555" target="_blank" rel="noopener">Saiba mais <span aria-hidden="true">→</span></a></div>
       </div></article>
@@ -595,34 +721,23 @@ img { display: block; max-width: 100%; }
     </div>
   </section>
 
-  <!-- 14. Experiência -->
-  <section class="exp t-black" aria-labelledby="exp-t">
-    <div class="wrap">
-      <div class="exp-photo mask"><img src="fotos/cadeira.jpg" alt="Marcelo Scherer sentado em seu escritório" loading="lazy"></div>
-      <div class="txt rv">
-        <span class="kicker">Experiência</span>
-        <h2 class="h2" id="exp-t">Da sala de aula aos tribunais, Marcelo Scherer</h2>
-        <p>Além da atuação na advocacia, Marcelo foi professor de Direito Penal e Processo Penal, é autor de artigos jurídicos e participa do debate acadêmico sobre o sistema de justiça criminal. Uma trajetória dedicada ao Direito Criminal.</p>
-      </div>
-    </div>
-  </section>
 
   <!-- 16. Contato -->
-  <section class="contact t-mid" id="contato" aria-labelledby="cont-t">
+  <section class="contact t-black cfull" id="contato" aria-labelledby="cont-t">
+    <img class="cbg" src="fotos/contato-bg.jpg" alt="" loading="lazy">
     <div class="wrap">
       <div class="rv">
         <h2 class="h2" id="cont-t">Você não precisa compreender sozinho as consequências de um processo criminal</h2>
         <p class="lead">A orientação jurídica começa com a compreensão da sua situação e das possibilidades previstas em lei.</p>
         <dl>
-          <dt>Advogado</dt><dd>Marcelo Scherer · OAB/RS 96.494</dd>
-          <dt>Endereço</dt><dd>Rua Bento Gonçalves, 673, sala 701, Centro, São Leopoldo — RS</dd>
-          <dt>WhatsApp</dt><dd>(51) 99847-4555</dd>
-          <dt>E-mail</dt><dd>marcelovscherer@hotmail.com</dd>
-          <dt>Instagram</dt><dd><a href="https://instagram.com/marceloscherer.adv.criminal" target="_blank" rel="noopener">@marceloscherer.adv.criminal</a></dd>
+          <div><dt>Advogado</dt><dd>Marcelo Scherer · OAB/RS 96.494</dd></div>
+          <div><dt>Endereço</dt><dd>Rua Bento Gonçalves, 673, sala 701, Centro, São Leopoldo — RS</dd></div>
+          <div><dt>WhatsApp</dt><dd>(51) 99847-4555</dd></div>
+          <div><dt>E-mail</dt><dd>marcelovscherer@hotmail.com</dd></div>
+          <div><dt>Instagram</dt><dd><a href="https://instagram.com/marceloscherer.adv.criminal" target="_blank" rel="noopener">@marceloscherer.adv.criminal</a></dd></div>
         </dl>
         <a class="btn" data-wa href="https://wa.me/5551998474555" target="_blank" rel="noopener">Conversar com o escritório</a>
       </div>
-      <div class="photo mask"><img src="fotos/especializacoes.jpg" alt="Retrato de Marcelo Scherer" loading="lazy"></div>
     </div>
   </section>
   <div class="legal">
