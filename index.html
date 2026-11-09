@@ -338,14 +338,16 @@ img { display: block; max-width: 100%; }
 
 /* Uma foto vertical contínua cobrindo o topo e o sobre */
 .duo { position: relative; isolation: isolate; background: #0d0d0d; overflow: hidden; aspect-ratio: 1280 / 1690; display: flex; flex-direction: column; }
-.duo-img { position: absolute; top: -13.6%; left: 0; width: 100%; height: 113.6%; object-fit: cover; object-position: 50% 0%; z-index: -3; animation: duozoom 9s var(--ease) both; transform-origin: 50% 15%; }
+.duo-img { position: absolute; top: -15.2%; left: -12%; width: 112%; max-width: none; height: 127.2%; object-fit: cover; object-position: 50% 0%; z-index: -3; animation: duozoom 9s var(--ease) both; transform-origin: 50% 15%; }
 .duo::before { content: ""; position: absolute; inset: 0; z-index: -2; pointer-events: none;
   background:
     linear-gradient(180deg, rgba(13,13,13,.35) 0%, rgba(13,13,13,0) 5%, rgba(13,13,13,0) 94%, rgba(13,13,13,.6) 100%); }
 .pblock { position: relative; flex: 1 1 50%; min-height: clamp(720px, 64vw, 940px); display: flex; align-items: center; color: var(--fg); isolation: isolate; }
 .pblock::after { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; }
 .pb-hero::after { background: linear-gradient(270deg, rgba(10,10,10,.62) 0%, rgba(10,10,10,.4) 26%, rgba(10,10,10,0) 44%); -webkit-mask-image: linear-gradient(180deg, #000 60%, transparent 100%); mask-image: linear-gradient(180deg, #000 60%, transparent 100%); }
-.pb-about::after { background: linear-gradient(90deg, rgba(10,10,10,.5) 0%, rgba(10,10,10,.3) 28%, rgba(10,10,10,0) 46%); -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 40%); mask-image: linear-gradient(180deg, transparent 0%, #000 40%); }
+.pb-about::after { background: linear-gradient(90deg, rgba(10,10,10,.5) 0%, rgba(10,10,10,.3) 28%, rgba(10,10,10,0) 46%); -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 22%); mask-image: linear-gradient(180deg, transparent 0%, #000 22%); }
+.pblock.pb-about { align-items: flex-start; }
+.pb-about .pb-in { padding-top: clamp(40px, 6vw, 110px); }
 .pb-in { width: 100%; max-width: 1600px; margin: 0 auto; padding: 120px clamp(24px, 5vw, 64px) 80px; display: flex; }
 .pb-txt { width: min(460px, 30%); display: flex; flex-direction: column; gap: 18px; text-shadow: 0 1px 2px rgba(0,0,0,.35), 0 2px 22px rgba(0,0,0,.45); }
 .pb-txt.right { margin-left: auto; text-align: right; align-items: flex-end; }
