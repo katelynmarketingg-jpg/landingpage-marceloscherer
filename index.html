@@ -33,7 +33,10 @@
 .t-light { --bg: #e7e7e5; --tx: #161616; --mu: #55554f; --ln: rgba(22,22,22,.14); --card: #f6f6f4; --btnbg: #161616; --btntx: #efefed; --btnhv: #000; }
 .t-black { --bg: #0d0d0d; --tx: #f1f1ef; --mu: #a9a9a5; --ln: rgba(241,241,239,.12); --card: #1a1a1a; --btnbg: #e7e7e5; --btntx: #161616; --btnhv: #fff; }
 .t-mid { --bg: #5f5e5a; --tx: #f4f4f1; --mu: #deddd8; --ln: rgba(255,255,255,.2); --card: #6a6964; --btnbg: #f1f1ef; --btntx: #161616; --btnhv: #fff; }
-.t-light, .t-black, .t-mid { background: var(--bg); color: var(--tx); }
+.t-light { --g1: #f3f3f1; --g2: #e4e4e1; --g3: #cfcfcb; --glow: rgba(255,255,255,.55); }
+.t-black { --g1: #1e1e1d; --g2: #0e0e0e; --g3: #050505; --glow: rgba(255,255,255,.05); }
+.t-mid { --g1: #73726d; --g2: #5f5e5a; --g3: #474642; --glow: rgba(255,255,255,.10); }
+.t-light, .t-black, .t-mid { background-color: var(--bg); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"), radial-gradient(120% 70% at 12% 0%, var(--glow), transparent 60%), linear-gradient(165deg, var(--g1) 0%, var(--g2) 50%, var(--g3) 100%); background-size: 180px 180px, 100% 100%, 100% 100%; color: var(--tx); }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body {
@@ -339,6 +342,7 @@ img { display: block; max-width: 100%; }
 /* Uma foto vertical contínua cobrindo o topo e o sobre */
 .duo { position: relative; isolation: isolate; background: #0d0d0d; overflow: hidden; height: min(200svh, 106vw); display: flex; flex-direction: column; }
 .duo-img { position: absolute; top: -20.6vw; left: -5.7%; width: 108%; max-width: none; height: auto; aspect-ratio: 1280 / 1920; z-index: -3; animation: duozoom 9s var(--ease) both; transform-origin: 50% 15%; }
+.duo-blur { position: absolute; inset: 0; z-index: -3; pointer-events: none; -webkit-backdrop-filter: blur(7px); backdrop-filter: blur(7px); -webkit-mask-image: linear-gradient(90deg, #000 0%, rgba(0,0,0,.6) 10%, transparent 26%, transparent 74%, rgba(0,0,0,.6) 90%, #000 100%); mask-image: linear-gradient(90deg, #000 0%, rgba(0,0,0,.6) 10%, transparent 26%, transparent 74%, rgba(0,0,0,.6) 90%, #000 100%); }
 .duo::before { content: ""; position: absolute; inset: 0; z-index: -2; pointer-events: none;
   background:
     linear-gradient(180deg, rgba(13,13,13,.35) 0%, rgba(13,13,13,0) 5%, rgba(13,13,13,0) 78%, rgba(13,13,13,.55) 90%, #0d0d0d 100%); }
@@ -402,6 +406,7 @@ img { display: block; max-width: 100%; }
   .pb-txt.right .kicker { flex-direction: row; }
   .pb-btns { justify-content: flex-start; }
 }
+@media (max-width: 760px) { .duo-blur { display: none; } }
 @media (prefers-reduced-motion: reduce) { .duo-img { animation: none; } }
 </style>
 </head>
@@ -433,6 +438,7 @@ img { display: block; max-width: 100%; }
   <!-- 01 -->
   <div class="duo">
     <img class="duo-img" src="fotos/hero-em-pe.jpg" alt="Marcelo Scherer em pé em seu escritório">
+    <div class="duo-blur" aria-hidden="true"></div>
   <section class="pblock pb-hero" id="topo" aria-labelledby="hero-t">
     <div class="pb-in">
       <div class="pb-txt left">
