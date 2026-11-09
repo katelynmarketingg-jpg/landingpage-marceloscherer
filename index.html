@@ -353,8 +353,8 @@ img { display: block; max-width: 100%; }
 .pblock::after { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; }
 .pb-hero::after { background: linear-gradient(90deg, rgba(10,10,10,.62) 0%, rgba(10,10,10,.4) 26%, rgba(10,10,10,0) 44%); -webkit-mask-image: linear-gradient(180deg, #000 60%, transparent 100%); mask-image: linear-gradient(180deg, #000 60%, transparent 100%); }
 .pb-about::after { background: linear-gradient(270deg, rgba(10,10,10,.5) 0%, rgba(10,10,10,.3) 28%, rgba(10,10,10,0) 46%); -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 22%); mask-image: linear-gradient(180deg, transparent 0%, #000 22%); }
-.pblock.pb-about { align-items: flex-start; }
-.pb-about .pb-in { padding-top: clamp(40px, 6vw, 110px); }
+.pblock.pb-about { align-items: center; }
+.pb-about .pb-in { padding-top: clamp(80px, 9vw, 160px); padding-bottom: clamp(40px, 5vw, 80px); }
 .pb-in { width: 100%; max-width: 1600px; margin: 0 auto; padding: 120px clamp(24px, 5vw, 64px) 80px; display: flex; }
 .pb-txt { width: min(460px, 30%); display: flex; flex-direction: column; gap: 18px; text-shadow: 0 1px 2px rgba(0,0,0,.35), 0 2px 22px rgba(0,0,0,.45); }
 .pb-txt.right { margin-left: auto; text-align: right; align-items: flex-end; }
@@ -458,7 +458,6 @@ img { display: block; max-width: 100%; }
   <section class="pblock pb-about" id="sobre" aria-labelledby="sobre-t">
     <div class="pb-in">
       <div class="pb-txt right rv">
-        <span class="kicker">Olá, sou Marcelo Scherer</span>
         <h2 class="h2" id="sobre-t">A advocacia criminal não admite respostas prontas</h2>
         <p>Mestre em Ciências Criminais pela PUCRS, com formação internacional na Espanha e na Alemanha, Marcelo Scherer reúne <b>12 anos de atuação criminal</b>, experiência acadêmica e dedicação ao estudo do Direito Penal e Processual Penal.</p>
         <p>Sua trajetória é orientada por um propósito: contribuir para uma <b>defesa criminal qualificada</b> e reduzir os riscos de injustiças no sistema penal.</p>
