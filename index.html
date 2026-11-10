@@ -528,6 +528,27 @@ mark.tbd { background: rgba(241,241,239,.1); color: var(--tx); padding: 1px 6px;
 .pes-bar i::after { content: ""; position: absolute; inset: 0; background: #f1f1ef; transform: scaleX(0); transform-origin: left; transition: transform .5s var(--ease); }
 .pes-bar i.on::after { transform: scaleX(1); }
 .pes-num { color: var(--tx); margin-right: 14px; letter-spacing: .1em; }
+
+/* trajetória em linha do tempo */
+.t-mid > .creds .kicker { color: var(--mu); margin-bottom: 14px; }
+.t-mid > .creds h3 { font-size: clamp(26px, 2.9vw, 40px); max-width: 22ch; }
+.tline { position: relative; margin-top: 6px; }
+.tline::before { content: ""; position: absolute; left: 92px; top: 8px; bottom: 8px; width: 1px; background: var(--ln); }
+.t-mid > .creds .tline li, .tline li { grid-template-columns: 80px 1fr; gap: 0 25px; padding: 12px 0; border: 0 !important; position: relative; align-items: start; }
+.tline li::before { content: ""; position: absolute; left: 88px; top: 19px; width: 9px; height: 9px; border-radius: 50%; background: var(--bg, #2a2a28); border: 1.5px solid var(--tx); transition: background .3s; }
+.tline li:hover::before, .tline li:last-child::before { background: var(--tx); }
+.tline .yr { font-size: 12px; font-weight: 800; letter-spacing: .08em; padding-top: 4px; text-align: right; padding-right: 2px; white-space: nowrap; }
+.tline .tx { display: flex; flex-direction: column; gap: 3px; padding-left: 4px; }
+.tline .tx b { font-size: 15px; font-weight: 700; line-height: 1.3; }
+.tline .tx small { font-size: 13px; color: var(--mu); line-height: 1.45; }
+.creds.in .tline li:nth-child(7) { transition-delay: .48s; }
+@media (max-width: 760px) {
+  .tline::before { left: 4px; }
+  .t-mid > .creds .tline li, .tline li { grid-template-columns: 1fr; padding: 10px 0 10px 26px; }
+  .tline li::before { left: 0; top: 16px; }
+  .tline .yr { text-align: left; padding: 0 0 2px; }
+  .tline .tx { padding-left: 0; }
+}
 </style>
 </head>
 <body>
@@ -586,19 +607,20 @@ mark.tbd { background: rgba(241,241,239,.1); color: var(--tx); padding: 1px 6px;
   </div>
 
   <!-- Destaques -->
-  <section class="t-mid" aria-label="Destaques da trajetória">
+  <section class="t-mid" id="trajetoria" aria-label="Trajetória acadêmica e profissional">
     <div class="creds rv">
       <div>
-        <h3>Destaques da trajetória</h3>
-        <ol class="clist">
-            <li><span class="n" aria-hidden="true"></span><span>Mestre em Ciências Criminais pela PUCRS.</span></li>
-            <li><span class="n" aria-hidden="true"></span><span>Pós-graduado em Direito Penal Econômico e Direitos Humanos pela Universidad de Castilla-La Mancha, Espanha.</span></li>
-            <li><span class="n" aria-hidden="true"></span><span>Especialista em Ciências Penais pela PUCRS.</span></li>
-            <li><span class="n" aria-hidden="true"></span><span>Formação complementar na Georg-August-Universität Göttingen, Alemanha.</span></li>
-            <li><span class="n" aria-hidden="true"></span><span>Ex-professor de Direito Penal e Processo Penal.</span></li>
-            <li><span class="n" aria-hidden="true"></span><span>Associado ao Instituto Brasileiro de Ciências Criminais (IBCCRIM).</span></li>
-            <li><span class="n" aria-hidden="true"></span><span>Revisor da Revista da Faculdade de Direito da UFRGS.</span></li>
-          </ol>
+        <span class="kicker">Trajetória</span>
+        <h3>Uma formação construída no estudo do Direito Penal</h3>
+        <ol class="clist tline">
+          <li><span class="yr">2010</span><span class="tx"><b>Graduação em Direito</b><small>Universidade do Vale do Rio dos Sinos (Unisinos)</small></span></li>
+          <li><span class="yr">2010</span><span class="tx"><b>Extensão universitária em intercâmbio</b><small>Georg-August-Universität Göttingen, Alemanha</small></span></li>
+          <li><span class="yr">2012</span><span class="tx"><b>Especialização em Ciências Penais</b><small>Pontifícia Universidade Católica do Rio Grande do Sul (PUCRS)</small></span></li>
+          <li><span class="yr">2014</span><span class="tx"><b>Mestrado em Ciências Criminais</b><small>Pontifícia Universidade Católica do Rio Grande do Sul (PUCRS)</small></span></li>
+          <li><span class="yr">2015–2019</span><span class="tx"><b>Professor de Direito Penal e Processo Penal</b><small>Faculdade CNEC Gravataí</small></span></li>
+          <li><span class="yr">2017</span><span class="tx"><b>Pós-graduação em Derecho Penal Económico y Derechos Humanos</b><small>Universidad de Castilla-La Mancha, Espanha</small></span></li>
+          <li><span class="yr">Hoje</span><span class="tx"><b>Advogado criminalista</b><small>Associado ao IBCCRIM e revisor da Revista da Faculdade de Direito da UFRGS</small></span></li>
+        </ol>
       </div>
       <div class="creds-photo mask"><img src="fotos/retrato-maos.jpg" alt="Marcelo Scherer sentado, com as mãos entrelaçadas" loading="lazy"></div>
     </div>
