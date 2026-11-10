@@ -479,16 +479,18 @@ mark.tbd { background: rgba(241,241,239,.1); color: var(--tx); padding: 1px 6px;
 /* contato tela cheia */
 .contact.cfull { position: relative; isolation: isolate; overflow: hidden; background: #0d0d0d; }
 .cfull .cbg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 40%; z-index: -2; }
-.cfull::before { content: ""; position: absolute; inset: 0; z-index: -1; background: radial-gradient(70% 60% at 50% 50%, rgba(10,10,10,.55), rgba(10,10,10,.78)), linear-gradient(180deg, rgba(10,10,10,.5), rgba(10,10,10,.25) 40%, rgba(10,10,10,.7)); }
+.cfull::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(10,10,10,.45) 0%, rgba(10,10,10,.15) 22%, rgba(10,10,10,.2) 40%, rgba(10,10,10,.72) 62%, rgba(10,10,10,.92) 100%); }
+.contact.cfull { justify-content: flex-end; padding-top: 50svh; padding-bottom: clamp(40px, 5vw, 72px); }
+.cfull .cbg { object-position: 50% 30%; }
 .contact.cfull > .wrap { display: flex; flex-direction: column; align-items: center; text-align: center; max-width: 1560px; }
 .contact.cfull > .wrap > div { display: flex; flex-direction: column; align-items: center; }
 .cfull .h2 { font-size: clamp(28px, 3.1vw, 54px); max-width: 1240px; text-shadow: 0 2px 30px rgba(0,0,0,.4); }
-.cfull .lead { font-size: 16px; max-width: 56ch; color: #d6d6d2; margin-top: 22px; }
-.cfull dl { display: flex; flex-wrap: wrap; justify-content: center; gap: 18px 40px; margin-top: 40px; font-size: 14px; }
+.cfull .lead { font-size: 16px; max-width: 56ch; color: #d6d6d2; margin-top: 16px; }
+.cfull dl { display: flex; flex-wrap: wrap; justify-content: center; gap: 18px 32px; margin-top: 30px; font-size: 14px; }
 .cfull dl > div { display: flex; flex-direction: column; gap: 6px; }
 .cfull dt { padding-top: 0; color: #bdbdb8; }
-.cfull .btn { margin-top: 40px; }
-@media (max-width: 760px) { .cfull dl { flex-direction: column; gap: 14px; } .cfull dd { margin-bottom: 0; } }
+.cfull .btn { margin-top: 30px; }
+@media (max-width: 760px) { .contact.cfull { padding-top: 62svh; } .cfull .cbg { object-position: 62% 18%; } .cfull dl { flex-direction: column; gap: 14px; } .cfull dd { margin-bottom: 0; } }
 
 /* resumo cta */
 .res-cta { margin-top: clamp(28px, 4vw, 48px); display: flex; align-items: center; justify-content: space-between; gap: 20px 32px; flex-wrap: wrap; padding: 26px 30px; background: var(--card); border: 1px solid var(--ln); }
