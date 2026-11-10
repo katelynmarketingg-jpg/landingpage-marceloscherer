@@ -426,7 +426,7 @@ img { display: block; max-width: 100%; }
 .pes-track::-webkit-scrollbar { display: none; }
 .pes-track.drag { cursor: grabbing; scroll-snap-type: none; }
 .pes-track.drag img { pointer-events: none; }
-.pes-track .pf { flex: 0 0 auto; height: 100%; aspect-ratio: 3 / 4; margin: 0; scroll-snap-align: start; border: 0; background: #1a1a1a; user-select: none; }
+.pes-track .pf { flex: 0 0 100%; width: 100%; height: 100%; margin: 0; scroll-snap-align: start; border: 0; background: #1a1a1a; user-select: none; }
 .pes-track .pf img { transition: transform .8s var(--ease); }
 .pes-track .pf:hover img { transform: scale(1.03); }
 .pes-ctl { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
@@ -470,7 +470,7 @@ mark.tbd { background: rgba(241,241,239,.1); color: var(--tx); padding: 1px 6px;
 @media (max-width: 1100px) { .agrid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 760px) {
   .pessoal > .wrap { grid-template-columns: 1fr; }
-  .pes-track { height: 440px; } .pes-track .pf { width: 78vw; aspect-ratio: auto; }
+  .pes-track { height: 480px; }
   .agrid { grid-template-columns: 1fr; }
   .acard summary { min-height: 0; }
   .resumo, .pessoal { min-height: 0; }
@@ -520,6 +520,14 @@ mark.tbd { background: rgba(241,241,239,.1); color: var(--tx); padding: 1px 6px;
 .menu .nav-wa svg { width: 15px; height: 15px; }
 @media (max-width: 760px) { .brand-t small { display: none; } .brand-t b { font-size: 12px; } .nav-in { padding: 6px 6px 6px 8px; } .menu .nav-wa { margin-left: 0; padding: 11px 16px; } }
 @media (max-width: 380px) { .brand-t { display: none; } }
+
+/* carrossel: uma foto por vez + progresso */
+.pes-track { gap: 0; }
+.pes-bar { display: flex; gap: 6px; margin-top: -4px; }
+.pes-bar i { flex: 1; height: 2px; background: rgba(241,241,239,.16); position: relative; overflow: hidden; cursor: pointer; }
+.pes-bar i::after { content: ""; position: absolute; inset: 0; background: #f1f1ef; transform: scaleX(0); transform-origin: left; transition: transform .5s var(--ease); }
+.pes-bar i.on::after { transform: scaleX(1); }
+.pes-num { color: var(--tx); margin-right: 14px; letter-spacing: .1em; }
 </style>
 </head>
 <body>
@@ -607,7 +615,8 @@ mark.tbd { background: rgba(241,241,239,.1); color: var(--tx); padding: 1px 6px;
         <figure class="pf"><img src="fotos/cotidiano-4.jpg" alt="Marcelo Scherer na pista do aeroporto, em viagem a trabalho" loading="lazy" draggable="false"></figure>
         <figure class="pf"><img src="fotos/cotidiano-5.jpg" alt="Marcelo Scherer no escritório, em frente à estante de livros de processo penal" loading="lazy" draggable="false"></figure>
         </div>
-        <div class="pes-ctl"><span class="pes-hint">Arraste para o lado</span><span class="pes-btns"><button type="button" class="pes-prev" aria-label="Foto anterior">←</button><button type="button" class="pes-next" aria-label="Próxima foto">→</button></span></div>
+        <div class="pes-bar" aria-hidden="true"></div>
+        <div class="pes-ctl"><span class="pes-hint"><span class="pes-num">01 / 05</span> Arraste para o lado</span><span class="pes-btns"><button type="button" class="pes-prev" aria-label="Foto anterior">←</button><button type="button" class="pes-next" aria-label="Próxima foto">→</button></span></div>
       </div>
       <div class="pes-txt rv d1">
         <span class="kicker">Olá, sou Marcelo Scherer</span>
@@ -970,7 +979,12 @@ mark.tbd { background: rgba(241,241,239,.1); color: var(--tx); padding: 1px 6px;
 </script>
 <script>
 (function(){var t=document.querySelector('.pes-track');if(!t)return;var down=false,sx=0,sl=0,moved=false;
-function step(){var c=t.querySelector('.pf');return c?c.getBoundingClientRect().width+14:300;}
+function step(){return t.clientWidth;}
+var n=t.querySelectorAll('.pf').length,bar=document.querySelector('.pes-bar'),num=document.querySelector('.pes-num');
+for(var k=0;k<n;k++){(function(k){var i=document.createElement('i');i.addEventListener('click',function(){t.scrollTo({left:k*step(),behavior:'smooth'});});bar.appendChild(i);})(k);}
+function pad(x){return (x<10?'0':'')+x;}
+function upd(){var c=Math.min(n-1,Math.round(t.scrollLeft/step()));Array.prototype.forEach.call(bar.children,function(e,j){e.classList.toggle('on',j<=c);});num.textContent=pad(c+1)+' / '+pad(n);}
+t.addEventListener('scroll',upd,{passive:true});upd();
 t.addEventListener('pointerdown',function(e){if(e.pointerType!=='mouse')return;down=true;moved=false;sx=e.clientX;sl=t.scrollLeft;});
 window.addEventListener('pointermove',function(e){if(!down)return;var dx=e.clientX-sx;if(Math.abs(dx)>4){moved=true;t.classList.add('drag');}t.scrollLeft=sl-dx;});
 window.addEventListener('pointerup',function(){if(!down)return;down=false;if(moved){var w=step();t.classList.remove('drag');t.scrollTo({left:Math.round(t.scrollLeft/w)*w,behavior:'smooth'});}});
