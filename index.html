@@ -591,6 +591,11 @@ mark.tbd { background: rgba(241,241,239,.1); color: var(--tx); padding: 1px 6px;
 /* imagens: só aparecem inteiras, com fade suave */
 img.ld { opacity: 0; transition: opacity .7s var(--ease), transform 1.2s var(--ease); }
 img.ld.ok { opacity: 1; }
+
+/* card inteiro clicável */
+.news { position: relative; cursor: pointer; }
+.news .link::after { content: ""; position: absolute; inset: 0; }
+.track.drag .news .link::after { pointer-events: none; }
 </style>
 </head>
 <body>
@@ -867,8 +872,8 @@ img.ld.ok { opacity: 1; }
       <div class="press-head">
         <div class="rv">
           <span class="kicker">Na imprensa</span>
-          <h2 class="h2" id="press-t">Casos emblemáticos</h2>
-          <div class="stat"><b>STJ · TJRS</b><span>Decisões obtidas pela defesa nos tribunais e noticiadas pela imprensa jurídica especializada.</span></div>
+          <h2 class="h2" id="press-t">Resultados reais</h2>
+          <div class="stat"><b>STF · STJ · TJRS</b><span>Decisões conquistadas pela defesa de Marcelo Scherer nos tribunais. Arraste para o lado e toque em um caso para ler a matéria completa.</span></div>
         </div>
         <div class="arrows rv d1">
           <button type="button" id="prev" aria-label="Manchete anterior"><svg aria-hidden="true"><use href="#i-l"/></svg></button>
@@ -877,9 +882,10 @@ img.ld.ok { opacity: 1; }
       </div>
       <div class="track rv" id="track" tabindex="0" aria-label="Manchetes">
         <article class="news"><div class="src"><span>Conjur · STJ</span><span>jun. 2026</span></div><div class="hd"><h3>STJ tira acusado do júri por falta de prova direta de autoria</h3><p class="orig">Título original: “Testemunho indireto e elementos do inquérito não autorizam pronúncia”</p></div><div class="bd"><p>O STJ despronunciou um acusado de homicídio, porque a decisão que o levou a júri se apoiava apenas em testemunhos indiretos e em elementos do inquérito. A defesa, feita por Marcelo Scherer, apontou a insuficiência de indícios de autoria.</p><a class="link" href="https://conjur.com.br/2026-jun-01/testemunho-indireto-e-elementos-do-inquerito-nao-autorizam-pronuncia-2/" target="_blank" rel="noopener">Ler matéria <span aria-hidden="true">→</span></a></div></article>
+        <article class="news"><div class="src"><span>Conjur · STF</span><span>mar. 2026</span></div><div class="hd"><h3>STF reconhece crime continuado e reduz pena em caso de fraude a licitação</h3><p class="orig">Título original: “Gilmar vê crime continuado e reduz pena de réu por fraude a licitação”</p></div><div class="bd"><p>Em habeas corpus impetrado pela defesa, o ministro Gilmar Mendes reconheceu a continuidade delitiva entre os fatos e reduziu a pena de um condenado por fraudes em licitações.</p><a class="link" href="https://conjur.com.br/2026-mar-26/gilmar-ve-crime-continuado-e-reduz-pena-de-reu-por-fraude-a-licitacao-2/" target="_blank" rel="noopener">Ler matéria <span aria-hidden="true">→</span></a></div></article>
         <article class="news"><div class="src"><span>Conjur · STJ</span><span>ago. 2024</span></div><div class="hd"><h3>Negar a autoria do crime não impede a progressão de regime</h3><p class="orig">Título original: “Negar o crime no exame criminológico não afasta progressão de regime”</p></div><div class="bd"><p>Em habeas corpus impetrado pela defesa, o STJ restabeleceu a progressão para o semiaberto, que havia sido negada com base na gravidade do crime e na negativa de autoria.</p><a class="link" href="https://conjur.com.br/2024-ago-08/negar-o-crime-no-exame-criminologico-nao-afasta-progressao-de-regime/" target="_blank" rel="noopener">Ler matéria <span aria-hidden="true">→</span></a></div></article>
         <article class="news"><div class="src"><span>Conjur · STJ</span><span>mai. 2023</span></div><div class="hd"><h3>STJ anula processo em que o Ministério Público faltou a todas as audiências</h3><p class="orig">Título original: “Ministro anula ação penal em que MP faltou a todas as audiências”</p></div><div class="bd"><p>O STJ entendeu que a juíza assumiu o papel da acusação ao ouvir a vítima e as testemunhas sem o MP presente. A nulidade foi levantada pela defesa no momento processual adequado.</p><a class="link" href="https://conjur.com.br/2023-mai-21/ministro-anula-acao-penal-mp-faltou-todas-audiencias/" target="_blank" rel="noopener">Ler matéria <span aria-hidden="true">→</span></a></div></article>
-        <article class="news"><div class="src"><span>Conjur · TJRS</span><span>nov. 2022</span></div><div class="hd"><h3>Júri é anulado porque o novo advogado teve menos de 24 horas para se preparar</h3><p class="orig">Título original: “Substituir advogado do réu na véspera do Júri ofende ampla defesa”</p></div><div class="bd"><p>O TJRS anulou a condenação e determinou um novo julgamento, reconhecendo a violação à ampla defesa e ao contraditório, como sustentou a defesa em recurso.</p><a class="link" href="https://conjur.com.br/2022-nov-08/substituir-advogado-reu-vespera-juri-ofende-ampla-defesa/" target="_blank" rel="noopener">Ler matéria <span aria-hidden="true">→</span></a></div></article>
+        <article class="news"><div class="src"><span>Jurinews · TJRS</span><span>nov. 2022</span></div><div class="hd"><h3>Júri é anulado porque o novo advogado teve menos de 24 horas para se preparar</h3><p class="orig">Título original: “Substituir advogado do réu na véspera do Júri ofende ampla defesa e contraditório”</p></div><div class="bd"><p>O TJRS anulou a condenação e determinou um novo julgamento, reconhecendo a violação à ampla defesa e ao contraditório, como sustentou a defesa em recurso.</p><a class="link" href="https://jurinews.com.br/justica/substituir-advogado-do-reu-na-vespera-do-juri-ofende-ampla-defesa-e-contraditorio" target="_blank" rel="noopener">Ler matéria <span aria-hidden="true">→</span></a></div></article>
       </div>
       <div class="progress" aria-hidden="true"><i id="bar"></i></div>
     </div>
