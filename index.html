@@ -438,7 +438,7 @@ img { display: block; max-width: 100%; }
 .pf span { font-size: 10px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: rgba(241,241,239,.4); }
 .pf img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .pf1 { grid-row: 1 / 3; }
-.pes-txt { display: flex; flex-direction: column; gap: 18px; max-width: 560px; }
+.pes-txt { display: flex; flex-direction: column; gap: 18px; max-width: 620px; }
 .pes-txt .kicker { color: var(--mu); }
 .pes-txt p { font-size: 16px; color: var(--mu); line-height: 1.7; }
 .pes-txt .h2 { margin-bottom: 6px; }
@@ -560,6 +560,20 @@ mark.tbd { background: rgba(241,241,239,.1); color: var(--tx); padding: 1px 6px;
 .brand { padding-left: 14px; }
 .brand-t b { font-size: 15px; letter-spacing: .01em; }
 .brand-t small { font-size: 10px; }
+
+/* história com rolagem própria */
+.pes-story-wrap { position: relative; }
+.pes-story { max-height: 300px; overflow-y: auto; padding-right: 18px; display: flex; flex-direction: column; gap: 16px; outline: none;
+  scrollbar-width: thin; scrollbar-color: rgba(241,241,239,.35) transparent;
+  -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 18px, #000 calc(100% - 70px), transparent 100%); mask-image: linear-gradient(180deg, transparent 0, #000 18px, #000 calc(100% - 70px), transparent 100%); padding-top: 4px; padding-bottom: 50px; }
+.pes-story::-webkit-scrollbar { width: 3px; }
+.pes-story::-webkit-scrollbar-thumb { background: rgba(241,241,239,.35); border-radius: 3px; }
+.pes-story p { font-size: 15.5px; line-height: 1.7; }
+.pes-more { display: inline-flex; align-items: center; gap: 8px; margin-top: 12px; font-size: 10.5px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--mu); transition: opacity .4s; }
+.pes-more span { animation: cue2 1.6s ease-in-out infinite; }
+.pes-story-wrap.end .pes-more { opacity: 0; }
+@keyframes cue2 { 0%,100% { transform: translateY(0); } 50% { transform: translateY(4px); } }
+@media (max-width: 760px) { .pes-story { max-height: 340px; } }
 </style>
 </head>
 <body>
@@ -654,9 +668,19 @@ mark.tbd { background: rgba(241,241,239,.1); color: var(--tx); padding: 1px 6px;
       <div class="pes-txt rv d1">
         <span class="kicker">Olá, sou Marcelo Scherer</span>
         <h2 class="h2" id="pes-t">Quem está por trás da defesa</h2>
-        <p>Natural de <mark class="tbd">[cidade]</mark>, <mark class="tbd">[um pouco sobre a história dele]</mark>.</p>
-        <p>Fora dos tribunais, sou apaixonado por corrida. <mark class="tbd">[detalhe: provas, rotina, o que a corrida ensina]</mark></p>
-        <p>Escolhi o Direito Criminal porque <mark class="tbd">[motivo, nas palavras dele]</mark>.</p>
+        <div class="pes-story-wrap">
+          <div class="pes-story" tabindex="0" aria-label="História de Marcelo Scherer, role para ler">
+            <p>Natural de Porto Alegre, minha trajetória foi construída a partir de valores que acompanham minha vida desde cedo: disciplina, dedicação, conhecimento e determinação.</p>
+            <p>Ainda jovem, fui atleta de base no futebol, tendo a oportunidade de vestir a camisa do Sport Club Internacional aos 16 anos de idade. O esporte despertou em mim o apreço pela disciplina, pelo trabalho em equipe e pela busca constante de superação.</p>
+            <p>Posteriormente, ingressei no Exército Brasileiro como oficial temporário da Arma de Infantaria, após conquistar o primeiro lugar no CPOR, em 2006. Servi durante oito anos no Quartel-General do Exército, período em que exerci, entre outras funções, as atividades de instrutor de tiro e oficial de planejamento e instrução. Uma experiência que consolidou minha capacidade de planejamento, liderança, organização e tomada de decisões em cenários de elevada responsabilidade.</p>
+            <p>Paralelamente à carreira militar, investi intensamente na formação acadêmica, com especializações, mestrado e cursos realizados no exterior. Em 2015, passei também a exercer a docência universitária, atividade que desenvolvi até 2019, conciliando a prática profissional com o ensino e a produção do conhecimento.</p>
+            <p>Em 2014, fundei a Macarthy Scherer Advogados, dando início a um projeto profissional pautado pela excelência técnica, pela responsabilidade e pelo compromisso com os interesses de nossos clientes. Desde então, construímos uma trajetória marcada por inúmeros resultados favoráveis, aliando experiência prática, sólida formação acadêmica e atuação estratégica.</p>
+            <p>Minha atuação na advocacia é orientada pelo estudo aprofundado de cada caso, pelo planejamento e pela definição de estratégias adequadas às particularidades de cada situação. Acredito que resultados consistentes não são fruto do acaso, mas de preparação, conhecimento, dedicação e atuação técnica em todas as etapas do processo. É com essa filosofia que conduzimos nossa atuação perante as diferentes instâncias do Poder Judiciário.</p>
+            <p>Desde pequeno, mantenho uma paixão pela literatura e pelos esportes. Acredito no desenvolvimento integral do indivíduo, no aperfeiçoamento permanente da mente e do corpo e na busca pelo conhecimento como processo contínuo.</p>
+            <p>Levo esses mesmos princípios para a advocacia: preparo, estratégia, comprometimento e foco no resultado.</p>
+          </div>
+          <span class="pes-more" aria-hidden="true">Role para ler a história <span>↓</span></span>
+        </div>
         <div class="pes-onde"><span class="dot" aria-hidden="true"></span>Atendimento presencial em São Leopoldo (RS) e online em todo o Brasil</div>
       </div>
     </div>
@@ -1020,6 +1044,9 @@ window.addEventListener('pointerup',function(){if(!down)return;down=false;if(mov
 document.querySelector('.pes-prev').addEventListener('click',function(){t.scrollBy({left:-step(),behavior:'smooth'});});
 document.querySelector('.pes-next').addEventListener('click',function(){t.scrollBy({left:step(),behavior:'smooth'});});
 })();
+</script>
+<script>
+(function(){var b=document.querySelector('.pes-story');if(!b)return;var w=b.parentNode;function u(){w.classList.toggle('end',b.scrollTop+b.clientHeight>=b.scrollHeight-8);}b.addEventListener('scroll',u,{passive:true});u();})();
 </script>
 <script src="https://www.youtube.com/iframe_api" async></script>
 </body>
