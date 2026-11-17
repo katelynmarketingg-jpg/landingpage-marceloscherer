@@ -712,6 +712,15 @@ img.ld.ok { opacity: 1; }
 .revs-grid { align-items: flex-start; }
 
 .rev .rev-ph { width: 120px; height: 120px; object-fit: cover; border-radius: 10px; }
+
+/* dados de contato no rodapé da página */
+.contact.cdark { justify-content: flex-start; padding-bottom: 28px; }
+.contact.cdark > .wrap:first-child { margin-block: auto; }
+.contact.cdark > .cinfo { margin-top: clamp(48px, 7vw, 96px); }
+.cdark .cinfo dl { margin-top: 0; width: 100%; justify-content: space-between; }
+@media (min-width: 1100px) { .cdark .cinfo dl { flex-wrap: nowrap; gap: 24px; font-size: 13px; } .cdark .cinfo dd { white-space: nowrap; } }
+@media (max-width: 1099px) { .cdark .cinfo dl { justify-content: center; } }
+.legal { padding-right: 96px; }
 </style>
 </head>
 <body>
@@ -1086,14 +1095,16 @@ img.ld.ok { opacity: 1; }
         <h2 class="h2" id="cont-t">Você não precisa compreender sozinho as consequências de um processo criminal</h2>
         <p class="lead">A orientação jurídica começa com a compreensão da sua situação e das possibilidades previstas em lei.</p>
         <a class="btn" data-wa href="https://wa.me/5551998474555" target="_blank" rel="noopener">Conversar com o escritório</a>
-        <dl>
+      </div>
+    </div>
+    <div class="wrap cinfo">
+      <dl>
           <div><dt>Advogado</dt><dd>Marcelo Scherer · OAB/RS 96.494</dd></div>
           <div><dt>Endereço</dt><dd>Rua Bento Gonçalves, 673, sala 701, Centro, São Leopoldo — RS</dd></div>
           <div><dt>WhatsApp</dt><dd>(51) 99847-4555</dd></div>
           <div><dt>E-mail</dt><dd>marcelovscherer@hotmail.com</dd></div>
           <div><dt>Instagram</dt><dd><a href="https://instagram.com/marceloscherer.adv.criminal" target="_blank" rel="noopener">@marceloscherer.adv.criminal</a></dd></div>
         </dl>
-      </div>
     </div>
   </section>
   <div class="legal">
