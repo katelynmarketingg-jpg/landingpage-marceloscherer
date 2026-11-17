@@ -518,8 +518,8 @@ mark.tbd { background: rgba(241,241,239,.1); color: var(--tx); padding: 1px 6px;
 .menu a.on::after { transform: translateX(-50%) scale(1) !important; }
 .menu .nav-wa { margin-left: 10px; border-radius: 999px; padding: 12px 20px; gap: 9px; font-size: 10.5px; }
 .menu .nav-wa svg { width: 15px; height: 15px; }
-@media (max-width: 760px) { .brand-t small { display: none; } .brand-t b { font-size: 12px; } .nav-in { padding: 6px 6px 6px 8px; } .menu .nav-wa { margin-left: 0; padding: 11px 16px; } }
-@media (max-width: 380px) { .brand-t { display: none; } }
+@media (max-width: 760px) { .brand-t small { font-size: 8.5px; letter-spacing: .14em; } .brand-t b { font-size: 13px; } .nav-in { padding: 6px 6px 6px 8px; } .menu .nav-wa { margin-left: 0; padding: 11px 16px; } }
+
 
 /* carrossel: uma foto por vez + progresso */
 .pes-track { gap: 0; }
@@ -555,6 +555,11 @@ mark.tbd { background: rgba(241,241,239,.1); color: var(--tx); padding: 1px 6px;
 .duo-blur { -webkit-mask-image: linear-gradient(90deg, #000 0%, rgba(0,0,0,.6) 10%, transparent 26%, transparent 100%); mask-image: linear-gradient(90deg, #000 0%, rgba(0,0,0,.6) 10%, transparent 26%, transparent 100%); }
 @media (max-width: 760px) { .duo-img { top: -40px; height: min(1200px, 300vw); object-position: 72% 0%; } }
 @media (min-width: 761px) { .duo .pb-about { background: radial-gradient(48% 62% at 82% 58%, rgba(10,10,10,.62), rgba(10,10,10,0) 72%); } }
+
+/* marca sem monograma */
+.brand { padding-left: 14px; }
+.brand-t b { font-size: 15px; letter-spacing: .01em; }
+.brand-t small { font-size: 10px; }
 </style>
 </head>
 <body>
@@ -569,7 +574,7 @@ mark.tbd { background: rgba(241,241,239,.1); color: var(--tx); padding: 1px 6px;
 <div class="readbar" id="readbar" aria-hidden="true"></div>
 <header class="nav" id="nav">
   <div class="nav-in">
-    <a class="brand" href="#topo" aria-label="Marcelo Scherer, início"><span class="mono">MS</span><span class="brand-t"><b>Marcelo Scherer</b><small>Advocacia Criminal</small></span></a>
+    <a class="brand" href="#topo" aria-label="Marcelo Scherer, início"><span class="brand-t"><b>Marcelo Scherer</b><small>Advocacia Criminal</small></span></a>
     <nav class="menu" aria-label="Principal">
       <a href="#sobre">Sobre</a>
       <a href="#quem-sou">Quem sou</a>
