@@ -596,6 +596,22 @@ img.ld.ok { opacity: 1; }
 .news { position: relative; cursor: pointer; }
 .news .link::after { content: ""; position: absolute; inset: 0; }
 .track.drag .news .link::after { pointer-events: none; }
+
+/* bloco do vídeo da tribuna */
+.trib { min-height: 100vh; min-height: 100svh; display: flex; align-items: center; padding-block: clamp(64px, 8vw, 110px); }
+.trib > .wrap { width: 100%; }
+.trib-head { max-width: 760px; margin: 0 auto 36px; text-align: center; }
+.trib-head .kicker { color: var(--mu); }
+.trib-head .h2 { margin-top: 10px; }
+.trib-head p { margin: 14px auto 0; font-size: 14px; color: var(--mu); max-width: 52ch; }
+.tvid { position: relative; max-width: min(1080px, calc((100svh - 330px) * 1.586)); min-width: min(100%, 520px); margin: 0 auto; aspect-ratio: 736 / 464; background: #000 url(fotos/stj-poster.jpg) center / cover; overflow: hidden; cursor: pointer; }
+.tvid video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.tvid::after { content: ""; position: absolute; inset: 0; background: rgba(0,0,0,.32); pointer-events: none; transition: opacity .6s; }
+.tvid .tplay { border: 0; cursor: pointer; z-index: 2; }
+.tvid .vtag { z-index: 2; top: 16px; bottom: auto; right: 18px; left: auto; }
+.tvid.playing { cursor: default; }
+@media (max-width: 760px) { .trib { min-height: 0; } .trib > .wrap { padding-inline: 0; } .trib-head { padding-inline: 24px; } .tvid { min-width: 0; max-width: 100%; } }
+.tvid.playing::after, .tvid.playing .tplay, .tvid.playing .vtag { opacity: 0; pointer-events: none; }
 </style>
 </head>
 <body>
@@ -892,6 +908,23 @@ img.ld.ok { opacity: 1; }
   </section>
 
 
+  <!-- Na tribuna (vídeo) -->
+  <section class="trib t-black" id="tribuna" aria-labelledby="trib-t">
+    <div class="wrap">
+      <div class="trib-head rv">
+        <span class="kicker">Sustentação oral</span>
+        <h2 class="h2" id="trib-t">Na tribuna do STJ</h2>
+        <p>Trecho da sustentação oral de Marcelo Scherer perante a Sexta Turma do STJ, em abril de 2025.</p>
+      </div>
+      <div class="tvid rv d1" id="tvid">
+        <video id="tvid-v" src="videos/sustentacao-stj.mp4" poster="fotos/stj-poster.jpg" preload="none" playsinline controlslist="nodownload" aria-label="Sustentação oral de Marcelo Scherer no STJ"></video>
+        <button type="button" class="play tplay" aria-label="Assistir ao vídeo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button>
+        <span class="vtag">Sexta Turma · STJ</span>
+      </div>
+    </div>
+  </section>
+
+
   <!-- 16. Contato -->
   <section class="contact t-black cfull" id="contato" aria-labelledby="cont-t">
     <img class="ld cbg cbg-plen" src="fotos/contato-plenario.jpg" alt="" decoding="async">
@@ -1082,6 +1115,14 @@ document.querySelector('.pes-next').addEventListener('click',function(){t.scroll
     im.addEventListener('error',function(){im.classList.add('ok');},{once:true});
   });
   setTimeout(function(){ imgs.forEach(function(im){ im.classList.add('ok'); }); }, 6000);
+})();
+</script>
+<script>
+(function(){var w=document.getElementById('tvid');if(!w)return;var v=document.getElementById('tvid-v');
+function go(){if(w.classList.contains('playing'))return;w.classList.add('playing');v.controls=true;v.play().catch(function(){});}
+w.addEventListener('click',function(e){if(!w.classList.contains('playing')){e.preventDefault();go();}});
+v.addEventListener('ended',function(){w.classList.remove('playing');v.controls=false;v.load();});
+new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting&&!v.paused)v.pause();});},{threshold:0}).observe(w);
 })();
 </script>
 <script src="https://www.youtube.com/iframe_api" async></script>
