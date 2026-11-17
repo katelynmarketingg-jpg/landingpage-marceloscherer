@@ -741,6 +741,11 @@ img.ld.ok { opacity: 1; }
 @media (max-width: 1240px) and (min-width: 761px) { .menu a:not(.btn) { padding: 10px 9px; } .menu { letter-spacing: .12em; } }
 @media (max-width: 1100px) and (min-width: 761px) { .menu a[href="#sobre"], .menu a[href="#quem-sou"] { display: none; } }
 @media (min-width: 761px) and (max-width: 1100px) { .pb-hero .pb-txt { padding-top: 110px; } }
+
+/* dados do rodapé: alinhados à esquerda e clicáveis */
+@media (min-width: 1100px) { .cdark .cinfo dl > div { align-items: flex-start; text-align: left; } }
+.cdark .cinfo dd a { color: inherit; text-decoration: none; background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat; transition: background-size .35s var(--ease); }
+.cdark .cinfo dd a:hover { background-size: 100% 1px; }
 </style>
 </head>
 <body>
@@ -1122,9 +1127,9 @@ img.ld.ok { opacity: 1; }
     <div class="wrap cinfo">
       <dl>
           <div><dt>Advogado</dt><dd>Marcelo Scherer · OAB/RS 96.494</dd></div>
-          <div><dt>Endereço</dt><dd>Rua Bento Gonçalves, 673, sala 701, Centro, São Leopoldo — RS</dd></div>
-          <div><dt>WhatsApp</dt><dd>(51) 99847-4555</dd></div>
-          <div><dt>E-mail</dt><dd>marcelovscherer@hotmail.com</dd></div>
+          <div><dt>Endereço</dt><dd><a href="https://www.google.com/maps/search/?api=1&amp;query=Rua+Bento+Gon%C3%A7alves%2C+673%2C+sala+701%2C+Centro%2C+S%C3%A3o+Leopoldo+RS" target="_blank" rel="noopener">Rua Bento Gonçalves, 673, sala 701, Centro, São Leopoldo — RS</a></dd></div>
+          <div><dt>WhatsApp</dt><dd><a data-wa href="https://wa.me/5551998474555" target="_blank" rel="noopener">(51) 99847-4555</a></dd></div>
+          <div><dt>E-mail</dt><dd><a href="mailto:marcelovscherer@hotmail.com">marcelovscherer@hotmail.com</a></dd></div>
           <div><dt>Instagram</dt><dd><a href="https://instagram.com/marceloscherer.adv.criminal" target="_blank" rel="noopener">@marceloscherer.adv.criminal</a></dd></div>
         </dl>
     </div>
