@@ -1250,8 +1250,8 @@ img.ld.ok { opacity: 1; }
   next.addEventListener("click", function () { track.scrollBy({ left: step() }); });
   track.addEventListener("scroll", update, { passive: true }); window.addEventListener("resize", update); update();
   var down = false, sx = 0, sl = 0, moved = false;
-  track.addEventListener("pointerdown", function (e) { if (e.pointerType !== "mouse") return; down = true; moved = false; sx = e.clientX; sl = track.scrollLeft; track.classList.add("drag"); });
-  window.addEventListener("pointermove", function (e) { if (!down) return; var dx = e.clientX - sx; if (Math.abs(dx) > 4) moved = true; track.scrollLeft = sl - dx; });
+  track.addEventListener("pointerdown", function (e) { if (e.pointerType !== "mouse") return; down = true; moved = false; sx = e.clientX; sl = track.scrollLeft; });
+  window.addEventListener("pointermove", function (e) { if (!down) return; var dx = e.clientX - sx; if (Math.abs(dx) > 6) { moved = true; track.classList.add("drag"); } if (moved) track.scrollLeft = sl - dx; });
   window.addEventListener("pointerup", function () { if (!down) return; down = false; track.classList.remove("drag"); });
   track.addEventListener("click", function (e) { if (moved) { e.preventDefault(); moved = false; } }, true);
   track.addEventListener("keydown", function (e) { if (e.key === "ArrowRight") next.click(); if (e.key === "ArrowLeft") prev.click(); });
