@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="preload" as="image" href="fotos/hero-tribuna.jpg" fetchpriority="high">
 <title>Marcelo Scherer · Advogado Criminalista</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="google" content="notranslate">
@@ -134,9 +135,9 @@ img { display: block; max-width: 100%; }
 .anim .rv { opacity: 0; transform: translateY(34px); transition: opacity .9s var(--ease), transform .9s var(--ease); }
 .anim .rv.in { opacity: 1; transform: none; }
 .anim .rv.d1 { transition-delay: .12s; } .anim .rv.d2 { transition-delay: .24s; }
-.anim .mask { clip-path: inset(0 0 100% 0); transition: clip-path 1.2s var(--ease); }
-.anim .mask.in { clip-path: inset(0 0 0 0); }
-.anim .mask img { transform: scale(1.18); transition: transform 1.8s var(--ease); }
+.anim .mask { opacity: 0; transform: translateY(28px); transition: opacity 1s var(--ease), transform 1.2s var(--ease); }
+.anim .mask.in { opacity: 1; transform: none; }
+.anim .mask img { transform: scale(1.08); transition: transform 1.8s var(--ease), opacity .7s var(--ease); }
 .anim .mask.in img { transform: none; }
 .anim .ph.mask .word { letter-spacing: .2em; opacity: 0; transition: letter-spacing 1.6s var(--ease), opacity 1.6s; }
 .anim .ph.mask.in .word { letter-spacing: -.02em; opacity: 1; }
@@ -586,6 +587,10 @@ mark.tbd { background: rgba(241,241,239,.1); color: var(--tx); padding: 1px 6px;
 
 .cfull .cbg.cbg-plen { object-position: 50% 36%; }
 @media (max-width: 760px) { .cfull .cbg.cbg-plen { object-position: 18% 30%; } }
+
+/* imagens: só aparecem inteiras, com fade suave */
+img.ld { opacity: 0; transition: opacity .7s var(--ease), transform 1.2s var(--ease); }
+img.ld.ok { opacity: 1; }
 </style>
 </head>
 <body>
@@ -616,7 +621,7 @@ mark.tbd { background: rgba(241,241,239,.1); color: var(--tx); padding: 1px 6px;
 
   <!-- 01 -->
   <div class="duo">
-    <img class="duo-img" src="fotos/hero-tribuna.jpg" alt="Marcelo Scherer na tribuna, durante sustentação em plenário">
+    <img class="ld duo-img" fetchpriority="high" src="fotos/hero-tribuna.jpg" alt="Marcelo Scherer na tribuna, durante sustentação em plenário">
     <div class="duo-blur" aria-hidden="true"></div>
   <section class="pblock pb-hero" id="topo" aria-labelledby="hero-t">
     <div class="pb-in">
@@ -659,7 +664,7 @@ mark.tbd { background: rgba(241,241,239,.1); color: var(--tx); padding: 1px 6px;
           <li><span class="yr">Hoje</span><span class="tx"><b>Advogado criminalista</b><small>Associado ao IBCCRIM e revisor da Revista da Faculdade de Direito da UFRGS</small></span></li>
         </ol>
       </div>
-      <div class="creds-photo mask"><img src="fotos/podcast.jpg" alt="Marcelo Scherer em entrevista, ao microfone" loading="lazy"></div>
+      <div class="creds-photo mask"><img class="ld" src="fotos/podcast.jpg" alt="Marcelo Scherer em entrevista, ao microfone" decoding="async"></div>
     </div>
   </section>
 
@@ -668,11 +673,11 @@ mark.tbd { background: rgba(241,241,239,.1); color: var(--tx); padding: 1px 6px;
     <div class="wrap">
       <div class="pes-fotos rv">
         <div class="pes-track" tabindex="0" aria-label="Fotos do cotidiano, arraste para o lado">
-        <figure class="pf"><img src="fotos/cotidiano-1.jpg" alt="Marcelo Scherer sorrindo em um plenário de julgamento" loading="lazy" draggable="false"></figure>
-        <figure class="pf"><img src="fotos/cotidiano-2.jpg" alt="Marcelo Scherer no escritório, em uma selfie descontraída" loading="lazy" draggable="false"></figure>
-        <figure class="pf"><img src="fotos/cotidiano-3.jpg" alt="Marcelo Scherer em frente ao plenário do STJ, em Brasília" loading="lazy" draggable="false"></figure>
-        <figure class="pf"><img src="fotos/cotidiano-4.jpg" alt="Marcelo Scherer na pista do aeroporto, em viagem a trabalho" loading="lazy" draggable="false"></figure>
-        <figure class="pf"><img src="fotos/cotidiano-5.jpg" alt="Marcelo Scherer no escritório, em frente à estante de livros de processo penal" loading="lazy" draggable="false"></figure>
+        <figure class="pf"><img class="ld" src="fotos/cotidiano-1.jpg" alt="Marcelo Scherer sorrindo em um plenário de julgamento" decoding="async" draggable="false"></figure>
+        <figure class="pf"><img class="ld" src="fotos/cotidiano-2.jpg" alt="Marcelo Scherer no escritório, em uma selfie descontraída" decoding="async" draggable="false"></figure>
+        <figure class="pf"><img class="ld" src="fotos/cotidiano-3.jpg" alt="Marcelo Scherer em frente ao plenário do STJ, em Brasília" decoding="async" draggable="false"></figure>
+        <figure class="pf"><img class="ld" src="fotos/cotidiano-4.jpg" alt="Marcelo Scherer na pista do aeroporto, em viagem a trabalho" decoding="async" draggable="false"></figure>
+        <figure class="pf"><img class="ld" src="fotos/cotidiano-5.jpg" alt="Marcelo Scherer no escritório, em frente à estante de livros de processo penal" decoding="async" draggable="false"></figure>
         </div>
         <div class="pes-bar" aria-hidden="true"></div>
         <div class="pes-ctl"><span class="pes-hint"><span class="pes-num">01 / 05</span> Arraste para o lado</span><span class="pes-btns"><button type="button" class="pes-prev" aria-label="Foto anterior">←</button><button type="button" class="pes-next" aria-label="Próxima foto">→</button></span></div>
@@ -781,7 +786,7 @@ mark.tbd { background: rgba(241,241,239,.1); color: var(--tx); padding: 1px 6px;
 
   <!-- Banner -->
   <section class="banner" aria-labelledby="def-t">
-    <img class="banner-juri" src="fotos/banner-juri.jpg" alt="Marcelo Scherer em sustentação oral durante julgamento" loading="lazy" data-parallax>
+    <img class="ld banner-juri" src="fotos/banner-juri.jpg" alt="Marcelo Scherer em sustentação oral durante julgamento" decoding="async" data-parallax>
     <div class="wrap">
       <h2 class="h2 rv" id="def-t">A defesa que você precisa</h2>
       <p class="rv d1">Atuação em todas as fases da investigação e do processo penal, na defesa de acusados e na assistência às vítimas.</p>
@@ -792,31 +797,31 @@ mark.tbd { background: rgba(241,241,239,.1); color: var(--tx); padding: 1px 6px;
   <section id="areas" aria-label="Áreas de atuação em detalhe">
     <div class="areas">
       <article class="band t-light" id="area-juri"><div class="wrap area">
-        <div class="ph mask"><img src="fotos/area-juri.jpg" alt="Plenário do Tribunal do Júri com balança da justiça" loading="lazy"></div>
+        <div class="ph mask"><img class="ld" src="fotos/area-juri.jpg" alt="Plenário do Tribunal do Júri com balança da justiça" decoding="async"></div>
         <div class="txt rv"><span class="kicker">Tribunal do Júri</span><h3>No Júri, a defesa se constrói muito antes do plenário.</h3><p>Estudo minucioso dos autos, preparação cuidadosa das testemunhas e construção de teses sólidas para sustentar a defesa perante o Conselho de Sentença.</p><a class="link" data-wa="Tribunal do Júri" href="https://wa.me/5551998474555" target="_blank" rel="noopener">Saiba mais <span aria-hidden="true">→</span></a></div>
       </div></article>
       <article class="band t-mid" id="area-dignidade"><div class="wrap area flip">
-        <div class="ph mask"><img src="fotos/area-dignidade.jpg" alt="Mãos segurando as grades de uma cela" loading="lazy" style="object-position:50% 50%"></div>
+        <div class="ph mask"><img class="ld" src="fotos/area-dignidade.jpg" alt="Mãos segurando as grades de uma cela" decoding="async" style="object-position:50% 50%"></div>
         <div class="txt rv"><span class="kicker">Crimes contra a dignidade sexual</span><h3>Uma acusação grave não autoriza um julgamento antecipado.</h3><p>Casos que envolvem reputação, liberdade e vida pessoal exigem sigilo, serenidade e uma análise criteriosa de cada prova e circunstância.</p><a class="link" data-wa="crimes contra a dignidade sexual" href="https://wa.me/5551998474555" target="_blank" rel="noopener">Saiba mais <span aria-hidden="true">→</span></a></div>
       </div></article>
       <article class="band t-black" id="area-intimacoes"><div class="wrap area center">
-        <div class="ph mask"><img src="fotos/area-intimacao.jpg" alt="Mão segurando um envelope com documento" loading="lazy" style="object-position:50% 38%"></div>
+        <div class="ph mask"><img class="ld" src="fotos/area-intimacao.jpg" alt="Mão segurando um envelope com documento" decoding="async" style="object-position:50% 38%"></div>
         <div class="txt rv"><span class="kicker">Investigação criminal e intimações</span><h3>Recebeu uma intimação? Entenda sua situação antes de falar.</h3><p>Antes de prestar qualquer esclarecimento, é essencial saber em que condição você está sendo chamado, quais são os seus direitos e como funciona o procedimento.</p><a class="link" data-wa="investigação criminal e intimações" href="https://wa.me/5551998474555" target="_blank" rel="noopener">Saiba mais <span aria-hidden="true">→</span></a></div>
       </div></article>
       <article class="band t-mid" id="area-processos"><div class="wrap area flip">
-        <div class="ph mask"><img src="fotos/area-processos.jpg" alt="Balança da justiça em tons escuros" loading="lazy" style="object-position:50% 45%"></div>
+        <div class="ph mask"><img class="ld" src="fotos/area-processos.jpg" alt="Balança da justiça em tons escuros" decoding="async" style="object-position:50% 45%"></div>
         <div class="txt rv"><span class="kicker">Processos criminais</span><h3>A acusação conta uma versão. A defesa garante que ela seja posta à prova.</h3><p>Um processo criminal não se resume ao que foi alegado contra você. A defesa trabalha com os fatos, as provas e os instrumentos da lei para apresentar a sua posição.</p><a class="link" data-wa="processo criminal" href="https://wa.me/5551998474555" target="_blank" rel="noopener">Saiba mais <span aria-hidden="true">→</span></a></div>
       </div></article>
       <article class="band t-black" id="area-prisoes"><div class="wrap area center">
-        <div class="ph mask"><img src="fotos/area-flagrante.jpg" alt="Fachada de delegacia da Polícia Civil em preto e branco" loading="lazy" style="object-position:50% 50%"></div>
+        <div class="ph mask"><img class="ld" src="fotos/area-flagrante.jpg" alt="Fachada de delegacia da Polícia Civil em preto e branco" decoding="async" style="object-position:50% 50%"></div>
         <div class="txt rv"><span class="kicker">Prisões e flagrantes</span><h3>Alguém da sua família foi preso? O primeiro passo é entender o que aconteceu.</h3><p>Nas primeiras horas após uma prisão, a orientação jurídica esclarece a situação para a família e avalia as medidas cabíveis em cada caso.</p><a class="link" data-wa="prisão em flagrante" href="https://wa.me/5551998474555" target="_blank" rel="noopener">Saiba mais <span aria-hidden="true">→</span></a></div>
       </div></article>
       <article class="band t-light" id="area-recursos"><div class="wrap area">
-        <div class="ph mask"><img src="fotos/area-recursos.jpg" alt="Estátua da Justiça com balança" loading="lazy"></div>
+        <div class="ph mask"><img class="ld" src="fotos/area-recursos.jpg" alt="Estátua da Justiça com balança" decoding="async"></div>
         <div class="txt rv"><span class="kicker">Recursos criminais</span><h3>Uma decisão desfavorável nem sempre é o fim do caminho.</h3><p>A lei prevê meios de revisão por meio de recursos, conforme as circunstâncias e os requisitos de cada processo. Uma análise técnica indica se e como recorrer.</p><a class="link" data-wa="recursos criminais" href="https://wa.me/5551998474555" target="_blank" rel="noopener">Saiba mais <span aria-hidden="true">→</span></a></div>
       </div></article>
       <article class="band t-mid" id="area-execucao"><div class="wrap area flip">
-        <div class="ph mask"><img src="fotos/area-prisao.jpg" alt="Pátio de presídio visto através das grades" loading="lazy"></div>
+        <div class="ph mask"><img class="ld" src="fotos/area-prisao.jpg" alt="Pátio de presídio visto através das grades" decoding="async"></div>
         <div class="txt rv"><span class="kicker">Execução penal</span><h3>Os direitos de quem foi condenado continuam depois da sentença.</h3><p>Progressão de regime, remição de pena e outros direitos da execução penal são avaliados conforme a situação individual e os requisitos legais.</p><a class="link" data-wa="execução penal" href="https://wa.me/5551998474555" target="_blank" rel="noopener">Saiba mais <span aria-hidden="true">→</span></a></div>
       </div></article>
     </div>
@@ -841,13 +846,13 @@ mark.tbd { background: rgba(241,241,239,.1); color: var(--tx); padding: 1px 6px;
           <p>Conversas sobre a realidade da advocacia criminal, os desafios da profissão e questões relevantes do Direito Penal e Processual Penal.</p>
         </div>
         <div class="pod-brand rv d1">
-          <img class="pod-logo pod-logo-img" src="fotos/podcast-logo-ret.jpg" alt="Logo do podcast Advocacia Criminal na Prática" loading="lazy">
+          <img class="ld pod-logo pod-logo-img" src="fotos/podcast-logo-ret.jpg" alt="Logo do podcast Advocacia Criminal na Prática" decoding="async">
           <div class="pod-meta"><b>Advocacia Criminal na Prática</b>Disponível no YouTube</div>
           <a class="btn yt-btn" href="https://www.youtube.com/watch?v=XEcTKcA27uY" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-yt"/></svg>Inscrever-se</a>
         </div>
       </div>
       <div class="video rv">
-        <img class="poster" src="fotos/hero-horizontal.jpg" alt="" loading="lazy">
+        <img class="ld poster" src="fotos/hero-horizontal.jpg" alt="" decoding="async">
         <div class="yt"><div id="yt-player"></div></div>
         <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span>
         <span class="vtag">Trecho do podcast</span>
@@ -883,7 +888,7 @@ mark.tbd { background: rgba(241,241,239,.1); color: var(--tx); padding: 1px 6px;
 
   <!-- 16. Contato -->
   <section class="contact t-black cfull" id="contato" aria-labelledby="cont-t">
-    <img class="cbg cbg-plen" src="fotos/contato-plenario.jpg" alt="" loading="lazy">
+    <img class="ld cbg cbg-plen" src="fotos/contato-plenario.jpg" alt="" decoding="async">
     <div class="wrap">
       <div class="rv">
         <h2 class="h2" id="cont-t">Você não precisa compreender sozinho as consequências de um processo criminal</h2>
@@ -978,7 +983,7 @@ mark.tbd { background: rgba(241,241,239,.1); color: var(--tx); padding: 1px 6px;
     document.documentElement.classList.add("anim");
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
-    }, { threshold: 0.15, rootMargin: "0px 0px -40px 0px" });
+    }, { threshold: 0.05, rootMargin: "0px 0px -4% 0px" });
     document.querySelectorAll(".rv, .tl, .split").forEach(function (el) { io.observe(el); });
     /* fotos com máscara: observa o elemento pai, pois o recorte esconde o próprio alvo */
     var io2 = new IntersectionObserver(function (entries) {
@@ -1059,6 +1064,19 @@ document.querySelector('.pes-next').addEventListener('click',function(){t.scroll
 </script>
 <script>
 (function(){var b=document.querySelector('.pes-story');if(!b)return;var w=b.parentNode;function u(){w.classList.toggle('end',b.scrollTop+b.clientHeight>=b.scrollHeight-8);}b.addEventListener('scroll',u,{passive:true});u();})();
+</script>
+<script>
+(function(){
+  var imgs=[].slice.call(document.images);
+  imgs.forEach(function(im){
+    if(!im.classList.contains('ld')) return;
+    function show(){ (im.decode?im.decode():Promise.resolve()).catch(function(){}).then(function(){ requestAnimationFrame(function(){ im.classList.add('ok'); }); }); }
+    if(im.complete){ show(); return; }
+    im.addEventListener('load',show,{once:true});
+    im.addEventListener('error',function(){im.classList.add('ok');},{once:true});
+  });
+  setTimeout(function(){ imgs.forEach(function(im){ im.classList.add('ok'); }); }, 6000);
+})();
 </script>
 <script src="https://www.youtube.com/iframe_api" async></script>
 </body>
