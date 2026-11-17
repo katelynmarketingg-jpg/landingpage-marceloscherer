@@ -724,6 +724,23 @@ img.ld.ok { opacity: 1; }
 @media (min-width: 1100px) { .cdark .cinfo dl { flex-wrap: nowrap; gap: 24px; font-size: 13px; } .cdark .cinfo dd { white-space: nowrap; } }
 @media (max-width: 1099px) { .cdark .cinfo dl { justify-content: center; } }
 .legal { padding-right: 96px; }
+
+/* WhatsApp: botão do menu verde e flutuante maior, vibrando */
+.menu .nav-wa { background: #25d366; color: #fff; border-color: #25d366; }
+.menu .nav-wa:hover { background: #1ebe5b; border-color: #1ebe5b; color: #fff; }
+.wa { width: 68px; height: 68px; animation: waBuzz 3.2s ease-in-out infinite; }
+.wa svg { width: 34px; height: 34px; }
+.wa::before { content: ""; position: absolute; inset: 0; border-radius: 50%; background: #25d366; z-index: -1; animation: waRing 3.2s ease-out infinite; }
+.wa:hover { animation-play-state: paused; }
+@keyframes waBuzz { 0%, 70%, 100% { transform: rotate(0) scale(1); } 74% { transform: rotate(-12deg) scale(1.06); } 78% { transform: rotate(10deg) scale(1.06); } 82% { transform: rotate(-8deg) scale(1.06); } 86% { transform: rotate(6deg) scale(1.04); } 90% { transform: rotate(0) scale(1); } }
+@keyframes waRing { 0%, 68% { transform: scale(1); opacity: 0; } 72% { opacity: .55; } 100% { transform: scale(1.6); opacity: 0; } }
+@media (max-width: 760px) { .wa { width: 62px; height: 62px; } .wa svg { width: 30px; height: 30px; } }
+@media (prefers-reduced-motion: reduce) { .wa, .wa::before { animation: none; } }
+
+.menu a { white-space: nowrap; }
+@media (max-width: 1240px) and (min-width: 761px) { .menu a:not(.btn) { padding: 10px 9px; } .menu { letter-spacing: .12em; } }
+@media (max-width: 1100px) and (min-width: 761px) { .menu a[href="#sobre"], .menu a[href="#quem-sou"] { display: none; } }
+@media (min-width: 761px) and (max-width: 1100px) { .pb-hero .pb-txt { padding-top: 110px; } }
 </style>
 </head>
 <body>
@@ -744,6 +761,8 @@ img.ld.ok { opacity: 1; }
       <a href="#quem-sou">Quem sou</a>
       <a href="#atuacao">Atuação</a>
       <a href="#podcast">Podcast</a>
+      <a href="#casos">Casos</a>
+      <a href="#instagram">Instagram</a>
       <a href="#contato">Contato</a>
       <a class="btn nav-wa" data-wa href="https://wa.me/5551998474555" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</a>
     </nav>
@@ -995,7 +1014,7 @@ img.ld.ok { opacity: 1; }
   </section>
 
   <!-- Manchetes -->
-  <section class="press t-light" aria-labelledby="press-t">
+  <section class="press t-light" id="casos" aria-labelledby="press-t">
     <div class="wrap">
       <div class="press-head">
         <div class="rv">
