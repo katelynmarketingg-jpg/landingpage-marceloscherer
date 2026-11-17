@@ -654,7 +654,7 @@ img.ld.ok { opacity: 1; }
 .revs.t-white .rev:hover, .revs.t-white .gbadge:hover { box-shadow: 0 18px 40px rgba(0,0,0,.08); }
 /* instagram */
 .ig { padding-block: clamp(64px, 8vw, 110px); }
-.ig-wrap { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: clamp(32px, 5vw, 80px); align-items: center; }
+.ig-wrap { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: clamp(32px, 5vw, 80px); align-items: center; }
 .ig-txt { display: flex; flex-direction: column; align-items: flex-start; gap: 18px; }
 .ig-txt .kicker { color: var(--mu); }
 .ig-txt p { font-size: 15px; line-height: 1.65; color: var(--mu); max-width: 44ch; }
@@ -687,6 +687,18 @@ img.ld.ok { opacity: 1; }
 .revs-foot .progress { flex: 1; margin: 0; }
 @media (max-width: 1000px) { .revs-grid .rev { flex-basis: calc((100% - 18px) / 2); } }
 @media (max-width: 760px) { .revs { min-height: 0; } .revs-grid { margin-inline: -24px; padding-inline: 24px; scroll-padding-inline: 24px; } .revs-grid .rev { flex-basis: 84%; } .revs-foot .arrows button { width: 44px; height: 44px; } }
+
+/* instagram em tela cheia */
+.ig { min-height: 100vh; min-height: 100svh; display: flex; align-items: center; }
+.ig > .wrap { width: 100%; }
+@media (min-width: 761px) { .ig-grid { gap: 8px; } }
+/* contato: fundo preto, sem foto */
+.contact.cdark { min-height: 100vh; min-height: 100svh; display: flex; flex-direction: column; justify-content: center; padding-top: clamp(96px, 12vw, 160px); padding-bottom: clamp(64px, 8vw, 110px);
+  background: radial-gradient(60% 55% at 50% 38%, rgba(255,255,255,.07), transparent 70%), radial-gradient(120% 80% at 50% 110%, rgba(255,255,255,.04), transparent 60%), linear-gradient(180deg, #111 0%, #0a0a0a 55%, #050505 100%); }
+.contact.cdark::before { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 0 .06 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); background-size: 180px 180px; }
+.contact.cdark::after { content: ""; position: absolute; left: 50%; top: clamp(56px, 8vw, 110px); width: 1px; height: clamp(40px, 6vw, 80px); background: linear-gradient(180deg, transparent, rgba(241,241,239,.4)); z-index: -1; }
+.cdark .h2 { font-size: clamp(28px, 3.4vw, 54px); max-width: 22ch; text-shadow: none; }
+@media (max-width: 760px) { .contact.cdark { padding-top: 110px; min-height: 0; } }
 </style>
 </head>
 <body>
@@ -1047,8 +1059,7 @@ img.ld.ok { opacity: 1; }
 
 
   <!-- 16. Contato -->
-  <section class="contact t-black cfull" id="contato" aria-labelledby="cont-t">
-    <img class="ld cbg cbg-plen" src="fotos/contato-plenario.jpg" alt="" decoding="async">
+  <section class="contact t-black cfull cdark" id="contato" aria-labelledby="cont-t">
     <div class="wrap">
       <div class="rv">
         <h2 class="h2" id="cont-t">Você não precisa compreender sozinho as consequências de um processo criminal</h2>
